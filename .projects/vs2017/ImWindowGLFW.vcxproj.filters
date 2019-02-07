@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ImWindowGLFW">
+      <UniqueIdentifier>{E3AEAADE-CF11-3A83-7897-723964D90506}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ImWindowGLFW\ImwPlatformWindowGLFW.h">
+      <Filter>ImWindowGLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ImWindowGLFW\ImwWindowManagerGLFW.h">
+      <Filter>ImWindowGLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\nigger.h" />
+    <ClInclude Include="..\..\picosha2.h" />
+    <ClInclude Include="..\..\encrypt.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="nibnig.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ImWindowGLFW\ImwPlatformWindowGLFW.cpp">
+      <Filter>ImWindowGLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ImWindowGLFW\ImwWindowManagerGLFW.cpp">
+      <Filter>ImWindowGLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ImWindowGLFW\main.cpp">
+      <Filter>ImWindowGLFW</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ImWindowGLFW.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\g303.wav" />
+    <Media Include="..\..\g502.wav" />
+    <Media Include="..\..\g3032.wav" />
+    <Media Include="..\..\GPro.wav" />
+    <Media Include="..\..\hp.wav" />
+    <Media Include="..\..\microsoft.wav" />
+    <Media Include="..\..\oldmouse.wav" />
+    <Media Include="..\..\oof.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wave8.bin" />
+  </ItemGroup>
+</Project>

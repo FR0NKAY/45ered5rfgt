@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\daniel\desktop\imwindow\plusaes.hpp(197): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+c:\users\daniel\desktop\imwindow\plusaes.hpp(210): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+c:\users\daniel\desktop\imwindow\nigger.h(304): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+c:\users\daniel\desktop\imwindow\nigger.h(305): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(160): fatal error C1083: Cannot open include file: 'curl/curl.h': No such file or directory
