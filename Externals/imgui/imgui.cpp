@@ -9441,7 +9441,7 @@ bool ImGui::ColorEdit3(float *col, bool alphabar)
 		}
 	}
 
-	return value_changed | widget_used;
+ 	return value_changed | widget_used;
 }
 
 // Edit colors components (each component in 0.0f..1.0f range

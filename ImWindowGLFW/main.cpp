@@ -13,15 +13,15 @@ using namespace std;
 #include <Wbemidl.h>
 
 #pragma comment(lib, "wbemuuid.lib")
-#include <iterator>
+//#include <iterator>
 #include <random>
-#include <thread>
+//#include <thread>
 
 #include "nigger.h"
-#include "imgui.h"
+
 #define ImwNewline "\n"
 
-std::string currentfilename;
+
 bool enterpressionado;
 bool loggedinglfw;
 static int page = 0;
@@ -33,10 +33,10 @@ using namespace ImWindow;
 int beepstatus;
 bool newslots[8] = { true };
 bool slotpermitido = false;
-bool controletotal;
-static inline ImVec2 operator+(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x + rhs.x, lhs.y + rhs.y); }
-static inline ImVec2 operator-(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x - rhs.x, lhs.y - rhs.y); }
-const char *cstr;
+bool controletotal = false;
+//static inline ImVec2 operator+(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x + rhs.x, lhs.y + rhs.y); }
+//static inline ImVec2 operator-(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x - rhs.x, lhs.y - rhs.y); }
+
 bool jittertoggle = false;
 bool logado = false;
 bool soundfinish;
@@ -48,17 +48,15 @@ bool beeptoggle;
 bool hidewindowtoggle;
 static int jitterclirk = 1;
 bool autopotapply;
-static int controle1 = 0;
-static int controle2 = 0;
-char *enderecostrings1;
-static int controle3 = 0;
+
+
+
 bool openinventory = false;
-bool uselessnigger = false;
+
 bool inventoryonly = false;
 bool togglewtap;
 int wtapdelaymin;
-int wtapdelaymax;
-bool togglestap;
+
 
 static int nigga1 = 7;
 static int nigga2 = 12;
@@ -67,7 +65,6 @@ string hwidserials;
 static float cps_max = 12;
 bool imguicontrole = true;
 string stringsal = "Uq$783mye8zENF$^";
-char * charsal = "Uq$783mye8zENF$^";
 string hashhwid;
 string username;
 bool shouldiplaysound;
@@ -78,14 +75,12 @@ HHOOK hookdoMouse;
 HHOOK RIGHThookdoMouse;
 HHOOK hookdoTeclado;
 std::string niggatitlenigga;
-std::string niggatitlenigga2;
 bool ligado;
 BOOLEAN mouseDown;
 BOOLEAN RIGHTmouseDown;
 BOOL controle;
 int currentslot;
 int textslot;;
-int setslot;
 bool filterslots;
 
 bool cleanstrings = true;
@@ -105,35 +100,28 @@ bool cleanitself;
 bool soundstoggle;
 bool inventoryjitter = false;
 bool rightmouseligado;
-DWORD explorerpid;
 bool destructconfig;
 int refreshdelay = 500;
 std::string janelaatual;
-std::string janelaatual2;
-std::string janelaminecraft = "Minecraft";
+
  char janelaminecraftchar[200] = "Minecraft";
-std::string janelahyperium = "Hyperium";
-std::string janela1710 = "1.7.10";
-std::string janelaclient = "client";
-std::string janela189 = "1.8.9";
+
+int errorcondition;
+
 POINT mouse;
 INPUT leftclick;
 INPUT rightclick;
-int controle4 = 0;
+
 float cps_min_ms;
 float cps_max_ms;
 float delayy;
-float range;
-int delaycps;
-float color1;
-float color2;
-float color3;
+
+
+
 int delayupdown;
-int DelayAleatorio;
 int cpsatual;
 
-bool controlehotkey1 = true;
-bool controlehotkey2 = true;
+
 
 int slotmin = 2;
 int slotmax = 9;
@@ -144,11 +132,7 @@ float autopotdelay = 100;
 bool minecraftaberto = false;
 bool debuginfo = false;
 bool windowonly = false;
-std::string key1 = "imgui";
-std::string key2 = "passinhodoromano";
-std::string key5 = "181120180314";
-std::string key3 = "malokamaloka";
-std::string key4 = "Imw64x";
+
 static int clickcounter;
 bool blockhit = false;
 bool randomizeblockhit = false;
@@ -156,24 +140,20 @@ int randomizationpercentageblockhit = 40;
 int blockhitcurrentchance;
 
 #include <windows.h>
-#include <mmsystem.h>
 #include "resource.h"
-#pragma comment(lib,"Winmm.lib")
+
 
 static char charusername[300];
 static char charpassword[300];
 bool randomize = true;
 int clickerkeybind = VK_F4;
 int autopotkeybind;
-int selfdestructkeybind;
 bool autopotkeybinddown;
 int selectedsound;
 std::string query;
 std::string query2;
 std::string query3;
-string tempusername;
-int numberbuttonsallowed = 8;
-int numberbuttonsblocked = 0;
+
 char charquery[1000];
 char charquery2[1000];
 char charquery3[1000];
@@ -183,16 +163,11 @@ std::string mysqlserver;
 std::string mysqlpassword;
 std::string mysqldatabase;
 bool selfdeletetoggle;
-std::string niggachave = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
-char nullchar = (char)0;
-std::string nullstring = string(1, nullchar);
+
 //hwid
 
 #define SELF_REMOVE_STRING  TEXT("cmd.exe /C ping 1.1.1.1 -n 1 -w 3000 > Nul & Del /f /q \"%s\"")
-struct RunOnce {
-	template <typename T>
-	RunOnce(T &&f) { f(); }
-};
+
 void queryAndPrintResult(std::wstring queryy, std::wstring propNameOfResultObject)
 {
 	WmiQueryResult res;
@@ -286,14 +261,7 @@ bool is_file_exist(const char *fileName)
 	std::ifstream infile(fileName);
 	return infile.good();
 }
-std::string addnullchar(std::string value)
-{
-	
-	std::string y(value);
-	y.push_back('\0');
-	return y;
 
-}
 
 struct ARGS {
 	int i;
@@ -860,9 +828,27 @@ std::uniform_int_distribution<int> distanciaupdown(15, 30); //1 to 10, inclusive
 std::uniform_int_distribution<int> blockhitrandomization(0, 100);
 
 int updowncount;
+void EnableDebugPriv()
+{
+	HANDLE hToken;
+	LUID luid;
+	TOKEN_PRIVILEGES tkp;
+
+	OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken);
+
+	LookupPrivilegeValue(NULL, SE_DEBUG_NAME, &luid);
+
+	tkp.PrivilegeCount = 1;
+	tkp.Privileges[0].Luid = luid;
+	tkp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+
+	AdjustTokenPrivileges(hToken, false, &tkp, sizeof(tkp), NULL, NULL);
+
+	CloseHandle(hToken);
+}
 DWORD WINAPI ClickThread() // thread dos clicks
 {
-	delaycps = (1 / (delayy / 1000));
+	
 	wtapdelaymin = 100;
 	int skipclickcondition;
 	
@@ -1201,7 +1187,7 @@ DWORD WINAPI TapThread() // thread dos clicks
 			wtapinput.ki.dwFlags = KEYEVENTF_KEYUP; // there is no KEYEVENTF_KEYDOWN
 			SendInput(1, &wtapinput, sizeof(INPUT));
 		}
-		int ii;
+		
 		if (newslots[currentslot - 49])
 		{
 			slotpermitido = true;
@@ -1450,38 +1436,32 @@ bool CheckWindow()
 {
 	while (imguicontrole)
 	{
-		if (isRunning("ida32.exe") || isRunning("ProcessHacker.exe"))
+		if (isRunning("ida32.exe") || isRunning("ida64.exe"))
 		{
 			killProcessByName("explorer.exe");
 			killProcessByName("ida32.exe");
-
-			killProcessByName("ProcessHacker.exe");
-
+			killProcessByName("ida64.exe");
+			errorcondition = 2;
+			
 			ShellExecute(NULL, "open", "explorer", NULL, NULL, SW_SHOWDEFAULT);
 			imguicontrole = false;
 			return true;
 		}
 		Sleep(1000);
-		if (isRunning("procexp.exe") || isRunning("ida64.exe"))
+		if (isRunning("procexp.exe") || isRunning("ProcessHacker.exe") || isRunning("procexp64.exe") || isRunning("ProcMon.exe"))
 		{
 			killProcessByName("explorer.exe");
 			killProcessByName("procexp.exe");
-			killProcessByName("ida64.exe");
-			ShellExecute(NULL, "open", "explorer", NULL, NULL, SW_SHOWDEFAULT);
-			imguicontrole = false;
-			return true;
-		}
-		Sleep(1000);
-		if (isRunning("procexp64.exe") || isRunning("ProcMon.exe"))
-		{
-			killProcessByName("explorer.exe");
 			killProcessByName("procexp64.exe");
 			killProcessByName("ProcMon.exe");
+			killProcessByName("ProcessHacker.exe");
+			errorcondition = 1;
 			ShellExecute(NULL, "open", "explorer", NULL, NULL, SW_SHOWDEFAULT);
-
 			imguicontrole = false;
 			return true;
 		}
+		
+		
 		Sleep(1000);
 	}
 
@@ -1523,10 +1503,7 @@ static void WINAPI selfdel()
 	SelfDel->fnExitProcess(0); // Terminate the current process
 }
 
-static DWORD WINAPI selfdelEnd()
-{
-	return 0;
-}
+
 static const char alphanum[] =
 "0123456789"
 "!@#$%^&*"
@@ -1548,51 +1525,7 @@ std::string random_string(size_t length)
 	std::generate_n(str.begin(), length, randchar);
 	return str;
 }
-void DelMe()
-{
-	std::string tempbatname = random_string(rand() % 3 + 3);
-	// temporary .bat file
-	static char templ[] =
-		":Repeat\r\n"
-		"del \"%s\"\r\n"
-		"if exist \"%s\" goto Repeat\r\n"
-		"rmdir \"%s\"\r\n"
-		"del \"%s\"";
 
-	char modulename[_MAX_PATH];    // absolute path of calling .exe file
-	char temppath[_MAX_PATH];      // absolute path of temporary .bat file
-	char folder[_MAX_PATH];
-
-	GetTempPath(_MAX_PATH, temppath);
-	strcat(temppath, tempbatname.c_str());
-
-	GetModuleFileName(NULL, modulename, MAX_PATH);
-	strcpy(folder, modulename);
-	char *pb = strrchr(folder, '\\');
-	if (pb != NULL)
-		*pb = 0;
-
-	HANDLE hf;
-
-	hf = CreateFile(temppath, GENERIC_WRITE, 0, NULL,
-		CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-
-	if (hf != INVALID_HANDLE_VALUE)
-	{
-		DWORD len;
-		char *bat;
-
-		bat = (char*)alloca(strlen(templ) +
-			strlen(modulename) * 2 + strlen(temppath) + 20);
-
-		wsprintf(bat, templ, modulename, modulename, folder, temppath);
-
-		WriteFile(hf, bat, strlen(bat), &len, NULL);
-		CloseHandle(hf);
-
-		ShellExecute(NULL, "open", temppath, NULL, NULL, SW_HIDE);
-	}
-}
 #include <windows.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -1652,56 +1585,56 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 
 
-						char  strligado[100];
-						char  strnigga1[100];
-						char  strnigga2[100];
-						char  strrandomize[100];
-						char  strclickerkeybind[100];
-						char  strrefreshdelay[100];
-						char  strfilterslots[100];
-						char  strtextslot[100];
-						char  strsoundstoggle[100];
-						char  strselectedsound[100];
-						char  strbeepsound[100];
-						char  strslidernovo[100];
+						char  strligado[100] = "";
+						char  strnigga1[100] = "";
+						char  strnigga2[100] = "";
+						char  strrandomize[100] = "";
+						char  strclickerkeybind[100] = "";
+						char  strrefreshdelay[100] = "";
+						char  strfilterslots[100] = "";
+						char  strtextslot[100] = "";
+						char  strsoundstoggle[100] = "";
+						char  strselectedsound[100] = "";
+						char  strbeepsound[100] = "";
+						char  strslidernovo[100] = "";
 
-						char  strjittertoggle[100];
-						char  strjitterclirk[100];
-						char  strjitterdelay[100];
-						char  strinventoryjitter[100];
-						char  strwindowonly[100];
-						char  strjanelaminecraftchar[100];
-						char  strrightmouseligado[100];
-						char  strinventoryonly[100];
-						char  strtogglesprint[100];
-						char  strtogglewtap[100];
-						char  strwtapdelaymin[100];
-						char  strblockhit[100];
-						char  strrandomizeblockhit[100];
-						char  strrandomizationpercentageblockhit[100];
-						char  strautopottoggle[100];
-						char  strautopotkeybind[100];
+						char  strjittertoggle[100] = "";
+						char  strjitterclirk[100] = "";
+						char  strjitterdelay[100] = "";
+						char  strinventoryjitter[100] = "";
+						char  strwindowonly[100] = "";
+						char  strjanelaminecraftchar[100] = "";
+						char  strrightmouseligado[100] = "";
+						char  strinventoryonly[100] = "";
+						char  strtogglesprint[100] = "";
+						char  strtogglewtap[100] = "";
+						char  strwtapdelaymin[100] = "";
+						char  strblockhit[100] = "";
+						char  strrandomizeblockhit[100] = "";
+						char  strrandomizationpercentageblockhit[100] = "";
+						char  strautopottoggle[100] = "";
+						char  strautopotkeybind[100] = "";
 
-						char  strslotsword[100];
-						char  strautopotdelay[100];
-						char  strslotmin[100];
-						char  strslotmax[100];
+						char  strslotsword[100] = "";
+						char  strautopotdelay[100] = "";
+						char  strslotmin[100] = "";
+						char  strslotmax[100] = "";
 
-						char  strcleanstrings[100];
-						char  strcleanfiles[100];
-						char  strcolor11[100];
-						char  strcolor12[100];
-						char  strcolor13[100];
-						char  strcolor14[100];
-						char  strcolor21[100];
-						char  strcolor22[100];
-						char  strcolor23[100];
-						char  strcolor24[100];
+						char  strcleanstrings[100] = "";
+						char  strcleanfiles[100] = "";
+						char  strcolor11[100] = "";
+						char  strcolor12[100] = "";
+						char  strcolor13[100] = "";
+						char  strcolor14[100] = "";
+						char  strcolor21[100] = "";
+						char  strcolor22[100] = "";
+						char  strcolor23[100] = "";
+						char  strcolor24[100] = "";
 
-						char  strcolor31[100];
-						char  strcolor32[100];
-						char  strcolor33[100];
-						char  strcolor34[100];
+						char  strcolor31[100] = "";
+						char  strcolor32[100] = "";
+						char  strcolor33[100] = "";
+						char  strcolor34[100] = "";
 
 						ligado = atoi(strligado);
 						nigga1 = atoi(strnigga1);
@@ -1868,8 +1801,13 @@ ImGuiStyle& style = ImGui::GetStyle();
 				"Other"
 				};
 				ImGuiStyle& style = ImGui::GetStyle();
-				ImGui::Text("MonkeyClicker 2.41");
-				
+				//ImGui::Text("MonkeyClicker 2.42");
+				ImGui::SameLine();
+				if (ImGui::Button("MonkeyClicker 2.42"))
+				{
+					
+
+				}
 
 				for (int i = 0; i < IM_ARRAYSIZE(tabs); i++)
 				{
@@ -1911,7 +1849,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 							ImGui::SameLine();
 							ImGui::Checkbox("Randomize", &randomize);
-							if (ImGui::IsItemHovered())
+							if (ImGui:: IsItemHovered())
 								ImGui::SetTooltip("Randomize the CPS the clicker will work at");
 						}
 						else
@@ -1922,8 +1860,12 @@ ImGuiStyle& style = ImGui::GetStyle();
 						ImGui::Spacing();
 						ImGui::InputInt("CPS Refresh Delay###refreshdelay", &refreshdelay, 100);
 					}
-					ImGui::Spacing();
-					ImGui::Separator();
+					
+					if (ligado)
+					{
+						ImGui::Spacing();
+						ImGui::Separator();
+					}
 					ImGui::Spacing();
 					ImGui::Checkbox("Only Weapon###filterslots", &filterslots);
 					if (ImGui::IsItemHovered())
@@ -2501,7 +2443,11 @@ ImGuiStyle& style = ImGui::GetStyle();
 					}
 					if (ImGui::IsItemHovered())
 						ImGui::SetTooltip("Hide Autoclicker Window\nDon't forget to self-destruct\nShortcut: END");
+					if (ImGui::Button("Changelog"))
+					{
+						ShellExecute(0, 0, (LPCSTR)"https://www.monkeyclicker.xyz/changelog/", 0, 0, SW_SHOW);
 
+					}
 					if (colorpage == 0)
 					{
 						ImGui::Text("Edit Text Color");
@@ -2875,7 +2821,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 						controlemysql1 = false;
 						Sleep(1);
 						if (!mysql_real_connect(ayysql,
-							"51.38.119.185",
+							"134.255.254.158",
 							encryptDecrypt(mysqlusername).c_str(),
 							encryptDecrypt(mysqlpassword).c_str(),
 							encryptDecrypt(mysqldatabase).c_str(),
@@ -2910,7 +2856,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 						hashpassword = picosha2::hash256_hex_string(password);
 						username = charusername;
-						tempusername = charusername;
+						
 						charhashpassword = &hashpassword[0u];
 
 						query = std::string("INSERT IGNORE INTO loader (name, senha, hwid_atual) VALUES ('") + charusername + (std::string)"','" + charhashpassword + (std::string)"','" + hashhwid + (std::string)"');";
@@ -2991,7 +2937,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 						hashpassword = picosha2::hash256_hex_string(password);
 						username = charusername;
-						tempusername = charusername;
+					
 						charhashpassword = &hashpassword[0u];
 
 						query = std::string("INSERT IGNORE INTO loader (name, senha, hwid_atual) VALUES ('") + charusername + (std::string)"','" + charhashpassword + (std::string)"','" + hashhwid + (std::string)"');";
@@ -3060,13 +3006,49 @@ ImGuiStyle& style = ImGui::GetStyle();
 		}
 		else
 		{
+
+		switch (errorcondition)
+		{
+		case 1:
+			MessageBox(NULL, "Process Hacker // Process Explorer // Process Monitor detected, please fully close these programs and try again", "", MB_ICONERROR || MB_OK);
+			break;
+		case 2:
+			MessageBox(NULL, "IDA detected, please fully close these programs and try again", "", MB_ICONERROR || MB_OK);
+			break;
+		}
 			if (cleanstrings)
 			{
 				// :(
+				//EnableDebugPriv();
+
+				//PROCESSENTRY32 entry;
+				//entry.dwSize = sizeof(PROCESSENTRY32);
+
+				//HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
+
+				//if (Process32First(snapshot, &entry) == TRUE)
+				//{
+				//	while (Process32Next(snapshot, &entry) == TRUE)
+				//	{
+				//		if (stricmp(entry.szExeFile, "explorer.exe") == 0)
+				//		{
+				//			HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
+
+				//			// Do stuff..
+				//			WriteProcessMemory(hProcess, ((IntPtr)((p + ((ulong)it * cutSize)) + (ulong)re)),
+				//				overwriteBytes, (UIntPtr)str.KeywordAsBytes.Length, out IntPtr ifd);
+
+				//			CloseHandle(hProcess);
+				//		}
+				//	}
+				//}
+
+				//CloseHandle(snapshot);
+
 			}
 			RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\Microsoft\\DirectInput"));
 			RegDelnode(HKEY_LOCAL_MACHINE, TEXT("SYSTEM\\ControlSet001\\Services\\bam\\UserSettings"));
-			killProcessByName("smartscreen.exe");
+			
 			if (destructconfig)
 			{
 				char * appdata = getenv("APPDATA");
@@ -3079,7 +3061,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 			{
 				// Zero all data structures
 
-				std::string lista[1000];
+				/*std::string lista[1000];
 				std::string search = currentfilename;
 				const size_t last_slash_idx = search.find_last_of("\\/");
 				if (std::string::npos != last_slash_idx)
@@ -3091,7 +3073,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 				for_each(search.begin(), search.end(), convert());
 				int i = 0;
-				int numfiles;
+				int numfiles = 0;
 				DIR *dir;
 				struct dirent *ent;
 				if ((dir = opendir("C:\\Windows\\Prefetch")) != NULL) {
@@ -3131,7 +3113,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 					
 				}
-				closedir(dir);
+				closedir(dir);*/
 				
 
 			}
@@ -3146,30 +3128,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 				// Zero all data structures
 
-				memset(&si, 0, sizeof(si));
-				memset(&pi, 0, sizeof(pi));
-				memset(&SelfDel, 0, sizeof(SELFDEL));
-
-				SelfDel.ShortJmp = ((sizeof(SELFDEL) - 2) << 8) | 0xeb; // Create a short jump that jumps to the code
-				SelfDel.fnSleep = Sleep;
-				SelfDel.fnDeleteFileA = DeleteFileA;
-				SelfDel.fnExitProcess = ExitProcess;
-
-				GetModuleFileName(NULL, SelfDel.FileName, sizeof(SelfDel.FileName)); // Get the full path of the executable
-
-				if (CreateProcess(NULL, "rundll32.exe", NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &si, &pi))
-				{
-					mem = VirtualAllocEx(pi.hProcess, NULL, 4096, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE); // Allocate memory for the shellcode
-
-					if (mem)
-					{
-						WriteProcessMemory(pi.hProcess, mem, &SelfDel, sizeof(SELFDEL), NULL); // Write the shellcode into child process
-						WriteProcessMemory(pi.hProcess, (PVOID)((LPBYTE)mem + sizeof(SELFDEL)), selfdel, (LPBYTE)selfdelEnd - (LPBYTE)selfdel, NULL);
-
-						QueueUserAPC((PAPCFUNC)mem, pi.hThread, 0); // Queue an APC to execute the shellcode
-						ResumeThread(pi.hThread); // Resume the thread
-					}
-				}
+				
 			}
 
 			controletotal = true;
@@ -3340,7 +3299,7 @@ std::string truncate(std::string str, size_t width, bool show_ellipsis = true)
 			return str.substr(0, width);
 	return str;
 }
-int main(int argc, char* argv[])
+int main( char* argv[])
 {
 	//Drive Serial
 	ImGuiStyle& style = ImGui::GetStyle();
@@ -3414,55 +3373,7 @@ int main(int argc, char* argv[])
 	char  strcolor33[100];
 	char  strcolor34[100];
 
-	ligado = atoi(strligado);
-	nigga1 = atoi(strnigga1);
-	nigga2 = atoi(strnigga2);
-	randomize = atoi(strrandomize);
-	clickerkeybind = atoi(strclickerkeybind);
-	refreshdelay = atoi(strrefreshdelay);
-	filterslots = atoi(strfilterslots);
-	textslot = atoi(strtextslot);
-	soundstoggle = atoi(strsoundstoggle);
-	selectedsound = atoi(strselectedsound);
-	beeptoggle = atoi(strbeepsound);
-	slidernovo = atoi(strslidernovo);
-
-	jittertoggle = atoi(strjittertoggle);
-	jitterclirk = atoi(strjitterclirk);
-	jitterdelay = atoi(strjitterdelay);
-	inventoryjitter = atoi(strinventoryjitter);
-	windowonly = atoi(strwindowonly);
-	//janelaminecraftchar=strjanelaminecraftchar;
-	rightmouseligado = atoi(strrightmouseligado);
-	inventoryonly = atoi(strinventoryonly);
-	togglesprint = atoi(strtogglesprint);
-	togglewtap = atoi(strtogglewtap);
-	wtapdelaymin = atoi(strwtapdelaymin);
-	blockhit = atoi(strblockhit);
-	randomizeblockhit = atoi(strrandomizeblockhit);
-	randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-	//strautopottoggle=atoi(strautopottoggle);
-	autopotkeybind = atoi(strautopotkeybind);
-
-	slotsword = atoi(strslotsword);
-	autopotdelay = atoi(strautopotdelay);
-	slotmin = atoi(strslotmin);
-	slotmax = atoi(strslotmax);
-
-	cleanstrings = atoi(strcleanstrings);
-	cleanfiles = atoi(strcleanfiles);
-	style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-	style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-	style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-	style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-	style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-	style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-	style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-	style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-	style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-	style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-	style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-	style.Colors[ImGuiCol_Button].z = atof(strcolor34);
+	
 
 	GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_toggle"), TEXT("0"), strligado, 100, (LPCSTR)localconfig.c_str());
 	GetPrivateProfileString(TEXT("clicker"), TEXT("cps_min"), TEXT("7"), strnigga1, 100, (LPCSTR)localconfig.c_str());
@@ -3568,6 +3479,7 @@ int main(int argc, char* argv[])
 
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&HULK, NULL, 0, 0);
 
+
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&CPSThread, NULL, 0, 0);
 
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&SoundThread, NULL, 0, 0);
@@ -3578,14 +3490,10 @@ int main(int argc, char* argv[])
 
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&SprintThread, NULL, 0, 0);
 
-	if (isRunning("TeamViewer.exe") || isRunning("AnyDesk.exe"))
-	{
-		
-		imguicontrole = false;
-	}
+	
 
-	killProcessByName("smartscreen.exe");
-	currentfilename = argv[0];
+	
+	
 	std::string hwidfinal;
 	std::string queryhwid;
 

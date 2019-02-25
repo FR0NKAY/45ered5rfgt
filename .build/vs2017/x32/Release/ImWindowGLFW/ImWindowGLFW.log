@@ -1,6 +1,20 @@
-﻿  Generating code
-  0 of 941 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+﻿  main.cpp
+  Generating code
   Finished generating code
+  1 of 874 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   ImWindowGLFW.vcxproj -> C:\Users\Daniel\Desktop\ImWindow\.projects\vs2017\..\..\Output\ImWindowGLFW.exe
+c:\users\daniel\desktop\imwindow\externals\imgui\imgui.h(971): warning C26495: Variable 'ImGuiStorage::Pair::<anonymous-tag>::val_i' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\externals\imgui\imgui.h(972): warning C26495: Variable 'ImGuiStorage::Pair::<anonymous-tag>::val_f' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\externals\imgui\imgui.h(1102): warning C26495: Variable 'ImGuiListClipper::StartPosY' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\externals\imgui\imgui.h(1186): warning C26495: Variable 'ImDrawList::_ChannelsCurrent' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\externals\imgui\imgui_internal.h(284): warning C26495: Variable 'ImGuiStyleMod::<anonymous-tag>::BackupInt' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\externals\imgui\imgui_internal.h(285): warning C26495: Variable 'ImGuiStyleMod::<anonymous-tag>::BackupInt' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\externals\imgui\imgui_internal.h(365): warning C26495: Variable 'ImGuiMouseCursorData::Type' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\include\picosha2.h(184): warning C26495: Variable 'picosha2::hash256_one_by_one::data_length_digits_' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\include\nigger.h(230): warning C6001: Using uninitialized memory 'vtProp'.
+c:\users\daniel\desktop\imwindow\include\nigger.h(297): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+c:\users\daniel\desktop\imwindow\include\nigger.h(298): warning C26451: Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1553): warning C26495: Variable 'MyImwWindow2::conectado' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(3317): warning C6200: Index '8' is out of valid index range '0' to '7' for non-stack buffer 'bool * newslots'.

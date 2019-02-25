@@ -1,154 +1,140 @@
 ﻿  main.cpp
-C:\Users\Daniel\Desktop\ImWindow\nigger.h(304): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\nigger.h(305): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\b64.h(14): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Daniel\Desktop\ImWindow\b64.h(36): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Daniel\Desktop\ImWindow\encrypt.h(8): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(732): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(733): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(737): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(738): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(744): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(745): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(749): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(749): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(818): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(837): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(858): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1142): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1165): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1194): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1195): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1195): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1220): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\include\nigger.h(304): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\include\nigger.h(305): warning C4244: '=': conversion from 'double' to 'LONG', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\include\b64.h(14): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Daniel\Desktop\ImWindow\include\b64.h(36): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Daniel\Desktop\ImWindow\include\encrypt.h(8): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(754): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(755): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(759): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(760): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(766): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(767): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(771): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(771): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(840): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(859): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(880): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1164): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1187): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1225): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1530): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(90): note: see declaration of 'strcat'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1533): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1226): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1226): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1251): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1256): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1678): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1684): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1685): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1686): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1687): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1688): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1689): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1690): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1691): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1692): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1693): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1694): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1695): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1777): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1783): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1784): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1785): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1786): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1787): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1788): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1789): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1790): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1791): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1792): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1793): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1794): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2305): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2311): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2312): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2313): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2314): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2315): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2316): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2317): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2318): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2319): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2320): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2321): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2322): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2404): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2410): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2411): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2412): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2413): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2414): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2415): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2416): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2417): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2418): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2419): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2420): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2421): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2664): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2670): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2671): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2672): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2673): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2674): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2675): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2676): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2677): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2678): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2679): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2680): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2681): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2763): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2769): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2770): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2771): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2772): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2773): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2774): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2775): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2776): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2777): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2778): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2779): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2780): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1584): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2139): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2211): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2436): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2792): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2902): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2983): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3023): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3096): warning C4101: 'mem': unreferenced local variable
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3092): warning C4101: 'si': unreferenced local variable
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3094): warning C4101: 'SelfDel': unreferenced local variable
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3093): warning C4101: 'pi': unreferenced local variable
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3427): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3433): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3434): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3435): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3436): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3437): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3438): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3439): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3440): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3441): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3442): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3443): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3444): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3276): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
+C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3485): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1698): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1704): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1705): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1706): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1707): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1708): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1709): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1710): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1711): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1712): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1713): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1714): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1715): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1797): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1803): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1804): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1805): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1806): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1807): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1808): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1809): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1810): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1811): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1812): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1813): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1814): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2276): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2282): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2283): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2284): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2285): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2286): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2287): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2288): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2289): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2290): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2291): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2292): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2293): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2375): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2381): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2382): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2383): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2384): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2385): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2386): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2387): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2388): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2389): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2390): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2391): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2392): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2635): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2641): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2642): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2643): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2644): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2645): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2646): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2647): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2648): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2649): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2650): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2651): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2652): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2734): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2740): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2741): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2742): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2743): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2744): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2745): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2746): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2747): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2748): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2749): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2750): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2751): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(1604): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2110): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2182): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2407): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2763): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2873): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2954): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(2984): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3360): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3366): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3367): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3368): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3369): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3370): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3371): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3372): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3373): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3374): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3375): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3376): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3377): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3459): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3465): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3466): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3467): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3468): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3469): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3470): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3471): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3472): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3473): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3474): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3475): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3476): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3260): warning C4996: 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\stdlib.h(1191): note: see declaration of 'getenv'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3521): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt\string.h(133): note: see declaration of 'strcpy'
-C:\Users\Daniel\Desktop\ImWindow\ImWindowGLFW\main.cpp(3017): warning C4700: uninitialized local variable 'numfiles' used
   ImWindowGLFW.vcxproj -> C:\Users\Daniel\Desktop\ImWindow\.projects\vs2017\..\..\Output\ImWindowGLFW_d.exe
