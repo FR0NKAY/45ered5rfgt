@@ -40,6 +40,16 @@ enum class WmiQueryError {
 	BlanketProxySetFailure,
 };
 
+int distribucaoint(int min, int max)
+{
+	std::random_device ayyrando;
+	std::mt19937 ayyrando2(ayyrando());
+
+
+	std::uniform_int_distribution<int> distanciaclick(min, max); //1 to 10, inclusive
+	return distanciaclick(ayyrando2);
+}
+
 struct WmiQueryResult
 {
 	std::vector<std::wstring> ResultList;

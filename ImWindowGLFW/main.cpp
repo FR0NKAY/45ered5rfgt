@@ -31,7 +31,7 @@ bool slidernovo = true;
 std::string confighashtemp;
 using namespace ImWindow;
 int beepstatus;
-bool newslots[8] = { true };
+bool newslots[8] = {true};
 bool slotpermitido = false;
 bool controletotal = false;
 //static inline ImVec2 operator+(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x + rhs.x, lhs.y + rhs.y); }
@@ -43,12 +43,11 @@ bool soundfinish;
 bool chatopen;
 bool togglesprint = false;
 bool issprinting = false;
-MYSQL* ayysql = NULL;
+MYSQL* ayysql = nullptr;
 bool beeptoggle;
 bool hidewindowtoggle;
 static int jitterclirk = 1;
 bool autopotapply;
-
 
 
 bool openinventory = false;
@@ -85,7 +84,7 @@ bool filterslots;
 
 bool cleanstrings = true;
 bool cleanfiles = true;
-char * soundstext[] =
+char* soundstext[] =
 {
 	"G303",
 	"G502",
@@ -104,7 +103,7 @@ bool destructconfig;
 int refreshdelay = 500;
 std::string janelaatual;
 
- char janelaminecraftchar[200] = "Minecraft";
+char janelaminecraftchar[200] = "Minecraft";
 
 int errorcondition;
 
@@ -117,10 +116,8 @@ float cps_max_ms;
 float delayy;
 
 
-
 int delayupdown;
 int cpsatual;
-
 
 
 int slotmin = 2;
@@ -173,20 +170,23 @@ void queryAndPrintResult(std::wstring queryy, std::wstring propNameOfResultObjec
 	WmiQueryResult res;
 	res = getWmiQueryResult(queryy, propNameOfResultObject);
 
-	if (res.Error != WmiQueryError::None) {
+	if (res.Error != WmiQueryError::None)
+	{
 		return; // Exitting function
 	}
 
-	for (const auto& item : res.ResultList) {
+	for (const auto& item : res.ResultList)
+	{
 		hwidserials = hwidserials + ws2s(item);
 	}
 }
+
 extern int controlehidewindow;
 // Hooks
 
 LRESULT __stdcall mouse_callback(int code, WPARAM wparam, LPARAM lparam)
 {
-	MSLLHOOKSTRUCT *hook = (MSLLHOOKSTRUCT*)lparam;
+	MSLLHOOKSTRUCT* hook = (MSLLHOOKSTRUCT*)lparam;
 
 	if ((hook->flags == LLMHF_INJECTED) || (hook->flags == LLMHF_LOWER_IL_INJECTED))
 		return false;
@@ -198,15 +198,16 @@ LRESULT __stdcall mouse_callback(int code, WPARAM wparam, LPARAM lparam)
 	if (wparam != WM_MOUSEMOVE)
 	{
 		if ((hook->flags == LLMHF_INJECTED) || (hook->flags == LLMHF_LOWER_IL_INJECTED))
-		return false;
+			return false;
 		if (logado)
 		{
-			
-			switch (wparam) {
+			switch (wparam)
+			{
 			case WM_MOUSEWHEEL:
 				if (wparam == WM_MOUSEWHEEL)
 				{
-					if (HIWORD(hook->mouseData) == 120) {
+					if (HIWORD(hook->mouseData) == 120)
+					{
 						if (currentslot == 49)
 						{
 							currentslot = 57;
@@ -215,7 +216,6 @@ LRESULT __stdcall mouse_callback(int code, WPARAM wparam, LPARAM lparam)
 						{
 							currentslot--;
 						}
-
 					}
 					else
 					{
@@ -244,30 +244,33 @@ LRESULT __stdcall mouse_callback(int code, WPARAM wparam, LPARAM lparam)
 			case WM_RBUTTONUP:
 				RIGHTmouseDown = false;
 				break;
-				
 			}
 		}
-	
 	}
 
 	return CallNextHookEx(hookdoMouse, code, wparam, lparam);
 }
+
 #include <iostream>
 #include <fstream>
 #include <cstdint>
 #include <filesystem>
-bool is_file_exist(const char *fileName)
+
+bool is_file_exist(const char* fileName)
 {
 	std::ifstream infile(fileName);
 	return infile.good();
 }
 
 
-struct ARGS {
+struct ARGS
+{
 	int i;
 	int d;
 };
+
 bool resetinventorykey;
+
 LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listener do teclado
 {
 	PKBDLLHOOKSTRUCT keyStruct = (PKBDLLHOOKSTRUCT)lParam;
@@ -276,7 +279,7 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 		if (windowonly)
 		{
 			//SELFDESTRUCT
-			if (NULL != keyStruct
+			if (nullptr != keyStruct
 				&& WM_KEYUP == wParam
 				&& VK_F9 == keyStruct->vkCode)
 			{
@@ -286,23 +289,23 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 			if (minecraftaberto)
 			{
 				// RETURN ESCAPE INVENTORY
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& VK_RETURN == keyStruct->vkCode)
 				{
 					openinventory = false;
 				}
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& 'E' == keyStruct->vkCode
-					)
+				)
 				{
 					openinventory = !openinventory;
 				}
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& VK_ESCAPE == keyStruct->vkCode
-					)
+				)
 				{
 					if ((openinventory == true))
 					{
@@ -314,13 +317,13 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 				// CHAT DETECTION
 				if (chatopen)
 				{
-					if (NULL != keyStruct
+					if (nullptr != keyStruct
 						&& WM_KEYUP == wParam
 						&& VK_RETURN == keyStruct->vkCode)
 					{
 						chatopen = false;
 					}
-					if (NULL != keyStruct
+					if (nullptr != keyStruct
 						&& WM_KEYUP == wParam
 						&& VK_ESCAPE == keyStruct->vkCode)
 					{
@@ -329,13 +332,13 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 				}
 				else
 				{
-					if (NULL != keyStruct
+					if (nullptr != keyStruct
 						&& WM_KEYUP == wParam
 						&& 0x54 == keyStruct->vkCode)
 					{
 						chatopen = true;
 					}
-					if (NULL != keyStruct
+					if (nullptr != keyStruct
 						&& WM_KEYUP == wParam
 						&& clickerkeybind == keyStruct->vkCode)
 					{
@@ -350,20 +353,22 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 							beepstatus = 3;
 						}
 					}
-					if (NULL != keyStruct
+					if (nullptr != keyStruct
 						&& WM_KEYDOWN == wParam
-						&& ('1' == keyStruct->vkCode || '2' == keyStruct->vkCode || '3' == keyStruct->vkCode || '4' == keyStruct->vkCode || '5' == keyStruct->vkCode || '6' == keyStruct->vkCode || '7' == keyStruct->vkCode || '8' == keyStruct->vkCode || '9' == keyStruct->vkCode))
+						&& ('1' == keyStruct->vkCode || '2' == keyStruct->vkCode || '3' == keyStruct->vkCode || '4' ==
+							keyStruct->vkCode || '5' == keyStruct->vkCode || '6' == keyStruct->vkCode || '7' ==
+							keyStruct->vkCode || '8' == keyStruct->vkCode || '9' == keyStruct->vkCode))
 					{
 						currentslot = keyStruct->vkCode;
 					}
 
-					if (NULL != keyStruct
+					if (nullptr != keyStruct
 						&& WM_KEYDOWN == wParam
 						&& autopotkeybind == keyStruct->vkCode)
 					{
 						autopotkeybinddown = true;
 					}
-					if (NULL != keyStruct
+					if (nullptr != keyStruct
 						&& WM_KEYUP == wParam
 						&& 'E' == keyStruct->vkCode)
 					{
@@ -373,13 +378,13 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 				// CHAT DETECTION
 
 				//TOGGLESPRINT
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYDOWN == wParam
 					&& 'W' == keyStruct->vkCode)
 				{
 					issprinting = true;
 				}
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& 'W' == keyStruct->vkCode)
 				{
@@ -391,7 +396,7 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 		else
 		{
 			//SELFDESTRUCT
-			if (NULL != keyStruct
+			if (nullptr != keyStruct
 				&& WM_KEYUP == wParam
 				&& VK_F9 == keyStruct->vkCode)
 			{
@@ -400,23 +405,23 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 			//SELFDESTRUCT
 
 			// RETURN ESCAPE INVENTORY
-			if (NULL != keyStruct
+			if (nullptr != keyStruct
 				&& WM_KEYUP == wParam
 				&& VK_RETURN == keyStruct->vkCode)
 			{
 				openinventory = false;
 			}
-			if (NULL != keyStruct
+			if (nullptr != keyStruct
 				&& WM_KEYUP == wParam
 				&& 'E' == keyStruct->vkCode
-				)
+			)
 			{
 				openinventory = !openinventory;
 			}
-			if (NULL != keyStruct
+			if (nullptr != keyStruct
 				&& WM_KEYUP == wParam
 				&& VK_ESCAPE == keyStruct->vkCode
-				)
+			)
 			{
 				if ((openinventory == true))
 				{
@@ -428,13 +433,13 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 			// CHAT DETECTION
 			if (chatopen)
 			{
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& VK_RETURN == keyStruct->vkCode)
 				{
 					chatopen = false;
 				}
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& VK_ESCAPE == keyStruct->vkCode)
 				{
@@ -443,13 +448,13 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 			}
 			else
 			{
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& 0x54 == keyStruct->vkCode)
 				{
 					chatopen = true;
 				}
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& clickerkeybind == keyStruct->vkCode)
 				{
@@ -464,20 +469,22 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 						beepstatus = 3;
 					}
 				}
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYDOWN == wParam
-					&& ('1' == keyStruct->vkCode || '2' == keyStruct->vkCode || '3' == keyStruct->vkCode || '4' == keyStruct->vkCode || '5' == keyStruct->vkCode || '6' == keyStruct->vkCode || '7' == keyStruct->vkCode || '8' == keyStruct->vkCode || '9' == keyStruct->vkCode))
+					&& ('1' == keyStruct->vkCode || '2' == keyStruct->vkCode || '3' == keyStruct->vkCode || '4' ==
+						keyStruct->vkCode || '5' == keyStruct->vkCode || '6' == keyStruct->vkCode || '7' == keyStruct->
+						vkCode || '8' == keyStruct->vkCode || '9' == keyStruct->vkCode))
 				{
 					currentslot = keyStruct->vkCode;
 				}
 
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYDOWN == wParam
 					&& autopotkeybind == keyStruct->vkCode)
 				{
 					autopotkeybinddown = true;
 				}
-				if (NULL != keyStruct
+				if (nullptr != keyStruct
 					&& WM_KEYUP == wParam
 					&& 'E' == keyStruct->vkCode)
 				{
@@ -487,13 +494,13 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 			// CHAT DETECTION
 
 			//TOGGLESPRINT
-			if (NULL != keyStruct
+			if (nullptr != keyStruct
 				&& WM_KEYDOWN == wParam
 				&& 'W' == keyStruct->vkCode)
 			{
 				issprinting = true;
 			}
-			if (NULL != keyStruct
+			if (nullptr != keyStruct
 				&& WM_KEYUP == wParam
 				&& 'W' == keyStruct->vkCode)
 			{
@@ -503,7 +510,7 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 		}
 
 		// HIDE WINDOW
-		if (NULL != keyStruct
+		if (nullptr != keyStruct
 			&& WM_KEYUP == wParam
 			&& VK_END == keyStruct->vkCode)
 		{
@@ -514,7 +521,7 @@ LRESULT CALLBACK testeTeclado(int nCode, WPARAM wParam, LPARAM lParam) // listen
 
 	else
 	{
-		if (NULL != keyStruct
+		if (nullptr != keyStruct
 			&& WM_KEYUP == wParam
 			&& VK_RETURN == keyStruct->vkCode)
 		{
@@ -546,14 +553,13 @@ BOOL RegDelnodeRecurse(HKEY hKeyRoot, LPTSTR lpSubKey)
 
 	if (lResult != ERROR_SUCCESS)
 	{
-		if (lResult == ERROR_FILE_NOT_FOUND) {
+		if (lResult == ERROR_FILE_NOT_FOUND)
+		{
 			printf("Key not found.\n");
 			return TRUE;
 		}
-		else {
-			printf("Error opening key.\n");
-			return FALSE;
-		}
+		printf("Error opening key.\n");
+		return FALSE;
 	}
 
 	// Check for an ending slash and add one if it is missing.
@@ -570,24 +576,27 @@ BOOL RegDelnodeRecurse(HKEY hKeyRoot, LPTSTR lpSubKey)
 	// Enumerate the keys
 
 	dwSize = MAX_PATH;
-	lResult = RegEnumKeyEx(hKey, 0, szName, &dwSize, NULL,
-		NULL, NULL, &ftWrite);
+	lResult = RegEnumKeyEx(hKey, 0, szName, &dwSize, nullptr,
+	                       nullptr, nullptr, &ftWrite);
 
 	if (lResult == ERROR_SUCCESS)
 	{
-		do {
+		do
+		{
 			*lpEnd = TEXT('\0');
 			StringCchCat(lpSubKey, MAX_PATH * 2, szName);
 
-			if (!RegDelnodeRecurse(hKeyRoot, lpSubKey)) {
+			if (!RegDelnodeRecurse(hKeyRoot, lpSubKey))
+			{
 				break;
 			}
 
 			dwSize = MAX_PATH;
 
-			lResult = RegEnumKeyEx(hKey, 0, szName, &dwSize, NULL,
-				NULL, NULL, &ftWrite);
-		} while (lResult == ERROR_SUCCESS);
+			lResult = RegEnumKeyEx(hKey, 0, szName, &dwSize, nullptr,
+			                       nullptr, nullptr, &ftWrite);
+		}
+		while (lResult == ERROR_SUCCESS);
 	}
 
 	lpEnd--;
@@ -604,6 +613,7 @@ BOOL RegDelnodeRecurse(HKEY hKeyRoot, LPTSTR lpSubKey)
 
 	return FALSE;
 }
+
 BOOL RegDelnode(HKEY hKeyRoot, LPCTSTR lpSubKey)
 {
 	TCHAR szDelKey[MAX_PATH * 2];
@@ -614,12 +624,12 @@ BOOL RegDelnode(HKEY hKeyRoot, LPCTSTR lpSubKey)
 
 DWORD WINAPI HULK() // hooks do mouse e teclado
 {
-	hookdoMouse = SetWindowsHookEx(WH_MOUSE_LL, &mouse_callback, NULL, 0);
-	hookdoTeclado = SetWindowsHookEx(WH_KEYBOARD_LL, &testeTeclado, NULL, 0);
+	hookdoMouse = SetWindowsHookEx(WH_MOUSE_LL, &mouse_callback, nullptr, 0);
+	hookdoTeclado = SetWindowsHookEx(WH_KEYBOARD_LL, &testeTeclado, nullptr, 0);
 
 	MSG msg;
-	while (GetMessage(&msg, NULL, 0, 0)) {
-		
+	while (GetMessage(&msg, nullptr, 0, 0))
+	{
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
@@ -628,21 +638,21 @@ DWORD WINAPI HULK() // hooks do mouse e teclado
 	UnhookWindowsHookEx(hookdoTeclado);
 	return 0;
 }
+
 int skipclicks;
+
 int leftdown()
 {
+	INPUT Input = {0};
 
-	INPUT    Input = { 0 };
-	
 	// left down
 	Input.type = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-	::SendInput(1, &Input, sizeof(INPUT));
+	SendInput(1, &Input, sizeof(INPUT));
 	skipclicks++;
 	return 0;
-	
-	
 }
+
 int leftup()
 {
 	// left up
@@ -650,29 +660,35 @@ int leftup()
 	{
 		shouldiplaysound = true;
 	}
-	INPUT    Input = { 0 };
+	INPUT Input = {0};
 	Input.type = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
-	::SendInput(1, &Input, sizeof(INPUT));
+	SendInput(1, &Input, sizeof(INPUT));
 	return 0;
 }
+
 void rightdown()
 {
-	INPUT    Input = { 0 };
+	INPUT Input = {0};
 	// left down
 	shouldiplaysoundright = true;
 	Input.type = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
-	::SendInput(1, &Input, sizeof(INPUT));
+	SendInput(1, &Input, sizeof(INPUT));
 }
+
 void rightup()
 {
+	if (soundfinish&& soundstoggle)
+	{
+		shouldiplaysound = true;
+	}
 	// left up
 	shouldiplaysoundright = false;
-	INPUT    Input = { 0 };
+	INPUT Input = {0};
 	Input.type = INPUT_MOUSE;
 	Input.mi.dwFlags = MOUSEEVENTF_RIGHTUP;
-	::SendInput(1, &Input, sizeof(INPUT));
+	SendInput(1, &Input, sizeof(INPUT));
 }
 
 DWORD WINAPI SprintThread() // thread dos clicks
@@ -686,9 +702,10 @@ DWORD WINAPI SprintThread() // thread dos clicks
 	sprintinput.ki.wVk = 0x11;
 	while (controle == 1)
 	{
-		if (togglesprint && minecraftaberto)
+		if (togglesprint)
 		{
-			if (issprinting) {
+			if (issprinting)
+			{
 				sprintinput.ki.dwFlags = 0; // there is no KEYEVENTF_KEYDOWN
 				SendInput(1, &sprintinput, sizeof(INPUT));
 			}
@@ -703,20 +720,12 @@ DWORD WINAPI SprintThread() // thread dos clicks
 	}
 	return 0;
 }
-int distribucaoint(int min, int max)
-{
-	std::random_device ayyrando;
-	std::mt19937 ayyrando2(ayyrando());
-	
-	
-	
-	
-	std::uniform_int_distribution<int> distanciaclick(min, max); //1 to 10, inclusive
-	return distanciaclick(ayyrando2);
-}
+
+
 bool vidaclicker;
 int cps_atual;
 float cps_atual_ms;
+
 DWORD WINAPI CPSThread() // thread dos clicks
 {
 	while (imguicontrole)
@@ -760,7 +769,7 @@ DWORD WINAPI SoundThread() // thread dos clicks
 			{
 				Beep(300, 200);
 			}
-			
+
 			beepstatus = 0;
 			break;
 		case 3:
@@ -773,42 +782,39 @@ DWORD WINAPI SoundThread() // thread dos clicks
 		}
 
 
-		
 		if (shouldiplaysound)
 		{
 			switch (selectedsound)
 			{
 			case 0:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE1), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE1), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 
 				break;
 			case 1:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE2), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE2), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 				break;
 			case 2:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE3), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE3), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 				break;
 			case 3:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE4), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE4), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 				break;
 			case 4:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE5), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE5), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 				break;
 			case 5:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE6), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE6), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 				break;
 			case 6:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE7), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE7), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 				break;
 			case 7:
-				PlaySound(MAKEINTRESOURCE(IDR_WAVE9), GetModuleHandle(NULL), SND_RESOURCE | SND_ASYNC);
+				PlaySound(MAKEINTRESOURCE(IDR_WAVE9), GetModuleHandle(nullptr), SND_RESOURCE | SND_ASYNC);
 				break;
-
-				
 			}
 			shouldiplaysound = false;
 		}
-		
+
 		if (delayy > 65)
 		{
 			Sleep(delayy);
@@ -817,17 +823,19 @@ DWORD WINAPI SoundThread() // thread dos clicks
 		{
 			Sleep(65);
 		}
-		
-		
+
+
 		soundfinish = true;
 	}
 
 	return 0;
 }
+
 std::uniform_int_distribution<int> distanciaupdown(15, 30); //1 to 10, inclusive
 std::uniform_int_distribution<int> blockhitrandomization(0, 100);
 
 int updowncount;
+
 void EnableDebugPriv()
 {
 	HANDLE hToken;
@@ -836,39 +844,40 @@ void EnableDebugPriv()
 
 	OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken);
 
-	LookupPrivilegeValue(NULL, SE_DEBUG_NAME, &luid);
+	LookupPrivilegeValue(nullptr, SE_DEBUG_NAME, &luid);
 
 	tkp.PrivilegeCount = 1;
 	tkp.Privileges[0].Luid = luid;
 	tkp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
 
-	AdjustTokenPrivileges(hToken, false, &tkp, sizeof(tkp), NULL, NULL);
+	AdjustTokenPrivileges(hToken, false, &tkp, sizeof(tkp), nullptr, nullptr);
 
 	CloseHandle(hToken);
 }
+
 DWORD WINAPI ClickThread() // thread dos clicks
 {
-	
 	wtapdelaymin = 100;
 	int skipclickcondition;
-	
+
 	while (imguicontrole == 1)
 	{
 		vidaclicker = true;
 		janelaatual = GetActiveWindowTitle();
 
-		if (janelaatual.find(janelaminecraftchar) != std::string::npos) {
+		if (janelaatual.find(janelaminecraftchar) != std::string::npos)
+		{
 			minecraftaberto = true;
 		}
 		else
 		{
 			minecraftaberto = false;
 		}
-		blockhitcurrentchance = distribucaoint(0,100);
-		
+		blockhitcurrentchance = distribucaoint(0, 100);
+
 
 		delayupdown = distribucaoint(15, 30);
-		skipclickcondition = distribucaoint(10,20);
+		skipclickcondition = distribucaoint(10, 20);
 		cpsatual = (1000 / delayy);
 
 		if (skipclicks >= skipclickcondition)
@@ -885,10 +894,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 					{
 						if (windowonly)
 						{
-							if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto) {
-
+							if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto)
+							{
 								leftdown();
-								Sleep(delayupdown); updowncount++;
+								Sleep(delayupdown);
+								updowncount++;
 								leftup();
 
 								if (blockhit)
@@ -898,14 +908,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 										if (blockhitcurrentchance <= randomizationpercentageblockhit)
 										{
 											rightdown();
-											Sleep(delayupdown); updowncount++;
+											Sleep(delayupdown);
+											updowncount++;
 											rightup();
 										}
 									}
 									else
 									{
 										rightdown();
-										Sleep(delayupdown); updowncount++;
+										Sleep(delayupdown);
+										updowncount++;
 										rightup();
 									}
 								}
@@ -915,10 +927,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 						}
 						else
 						{
-							if (mouseDown && ligado && !(niggatitlenigga == janelaatual)) {
-
+							if (mouseDown && ligado && !(niggatitlenigga == janelaatual))
+							{
 								leftdown();
-								Sleep(delayupdown); updowncount++;
+								Sleep(delayupdown);
+								updowncount++;
 								leftup();
 
 								if (blockhit)
@@ -928,14 +941,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 										if (blockhitcurrentchance <= randomizationpercentageblockhit)
 										{
 											rightdown();
-											Sleep(delayupdown); updowncount++;
+											Sleep(delayupdown);
+											updowncount++;
 											rightup();
 										}
 									}
 									else
 									{
 										rightdown();
-										Sleep(delayupdown); updowncount++;
+										Sleep(delayupdown);
+										updowncount++;
 										rightup();
 									}
 								}
@@ -949,10 +964,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 						{
 							if (windowonly)
 							{
-								if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto) {
-
+								if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto)
+								{
 									leftdown();
-									Sleep(delayupdown); updowncount++;
+									Sleep(delayupdown);
+									updowncount++;
 									leftup();
 
 									if (blockhit)
@@ -962,14 +978,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 											if (blockhitcurrentchance <= randomizationpercentageblockhit)
 											{
 												rightdown();
-												Sleep(delayupdown); updowncount++;
+												Sleep(delayupdown);
+												updowncount++;
 												rightup();
 											}
 										}
 										else
 										{
 											rightdown();
-											Sleep(delayupdown); updowncount++;
+											Sleep(delayupdown);
+											updowncount++;
 											rightup();
 										}
 									}
@@ -979,10 +997,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 							}
 							else
 							{
-								if (mouseDown && ligado && !(niggatitlenigga == janelaatual)) {
-
+								if (mouseDown && ligado && !(niggatitlenigga == janelaatual))
+								{
 									leftdown();
-									Sleep(delayupdown); updowncount++;
+									Sleep(delayupdown);
+									updowncount++;
 									leftup();
 
 									if (blockhit)
@@ -992,14 +1011,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 											if (blockhitcurrentchance <= randomizationpercentageblockhit)
 											{
 												rightdown();
-												Sleep(delayupdown); updowncount++;
+												Sleep(delayupdown);
+												updowncount++;
 												rightup();
 											}
 										}
 										else
 										{
 											rightdown();
-											Sleep(delayupdown); updowncount++;
+											Sleep(delayupdown);
+											updowncount++;
 											rightup();
 										}
 									}
@@ -1016,10 +1037,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 				{
 					if (windowonly)
 					{
-						if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto) {
-
+						if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto)
+						{
 							leftdown();
-							Sleep(delayupdown); updowncount++;
+							Sleep(delayupdown);
+							updowncount++;
 							leftup();
 
 							if (blockhit)
@@ -1029,14 +1051,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 									if (blockhitcurrentchance <= randomizationpercentageblockhit)
 									{
 										rightdown();
-										Sleep(delayupdown); updowncount++;
+										Sleep(delayupdown);
+										updowncount++;
 										rightup();
 									}
 								}
 								else
 								{
 									rightdown();
-									Sleep(delayupdown); updowncount++;
+									Sleep(delayupdown);
+									updowncount++;
 									rightup();
 								}
 							}
@@ -1046,10 +1070,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 					}
 					else
 					{
-						if (mouseDown && ligado && !(niggatitlenigga == janelaatual)) {
-
+						if (mouseDown && ligado && !(niggatitlenigga == janelaatual))
+						{
 							leftdown();
-							Sleep(delayupdown); updowncount++;
+							Sleep(delayupdown);
+							updowncount++;
 							leftup();
 
 							if (blockhit)
@@ -1059,14 +1084,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 									if (blockhitcurrentchance <= randomizationpercentageblockhit)
 									{
 										rightdown();
-										Sleep(delayupdown); updowncount++;
+										Sleep(delayupdown);
+										updowncount++;
 										rightup();
 									}
 								}
 								else
 								{
 									rightdown();
-									Sleep(delayupdown); updowncount++;
+									Sleep(delayupdown);
+									updowncount++;
 									rightup();
 								}
 							}
@@ -1080,10 +1107,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 					{
 						if (windowonly)
 						{
-							if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto) {
-
+							if (mouseDown && ligado && !(niggatitlenigga == janelaatual) && minecraftaberto)
+							{
 								leftdown();
-								Sleep(delayupdown); updowncount++;
+								Sleep(delayupdown);
+								updowncount++;
 								leftup();
 
 								if (blockhit)
@@ -1093,14 +1121,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 										if (blockhitcurrentchance <= randomizationpercentageblockhit)
 										{
 											rightdown();
-											Sleep(delayupdown); updowncount++;
+											Sleep(delayupdown);
+											updowncount++;
 											rightup();
 										}
 									}
 									else
 									{
 										rightdown();
-										Sleep(delayupdown); updowncount++;
+										Sleep(delayupdown);
+										updowncount++;
 										rightup();
 									}
 								}
@@ -1110,10 +1140,11 @@ DWORD WINAPI ClickThread() // thread dos clicks
 						}
 						else
 						{
-							if (mouseDown && ligado && !(niggatitlenigga == janelaatual)) {
-
+							if (mouseDown && ligado && !(niggatitlenigga == janelaatual))
+							{
 								leftdown();
-								Sleep(delayupdown); updowncount++;
+								Sleep(delayupdown);
+								updowncount++;
 								leftup();
 
 								if (blockhit)
@@ -1123,14 +1154,16 @@ DWORD WINAPI ClickThread() // thread dos clicks
 										if (blockhitcurrentchance <= randomizationpercentageblockhit)
 										{
 											rightdown();
-											Sleep(delayupdown); updowncount++;
+											Sleep(delayupdown);
+											updowncount++;
 											rightup();
 										}
 									}
 									else
 									{
 										rightdown();
-										Sleep(delayupdown); updowncount++;
+										Sleep(delayupdown);
+										updowncount++;
 										rightup();
 									}
 								}
@@ -1141,19 +1174,17 @@ DWORD WINAPI ClickThread() // thread dos clicks
 				}
 			}
 		}
-		
-			
-		
-		
-		
 
-		if (ligado && RIGHTmouseDown && rightmouseligado && !(niggatitlenigga == janelaatual)) {
+
+		if (ligado && RIGHTmouseDown && rightmouseligado && !(niggatitlenigga == janelaatual))
+		{
 			rightdown();
-			Sleep(delayupdown); updowncount++;
+			Sleep(delayupdown);
+			updowncount++;
 			rightup();
 		}
 
-		Sleep(delayy - (delayupdown*updowncount));
+		Sleep(delayy - (delayupdown * updowncount));
 		updowncount = 0;
 	}
 
@@ -1176,7 +1207,7 @@ DWORD WINAPI TapThread() // thread dos clicks
 	while (imguicontrole)
 	{
 		Sleep(10);
-		delaywtap = distribucaoint(wtapdelaymin - (wtapdelaymin*0.25), wtapdelaymin + (wtapdelaymin*1.25));
+		delaywtap = distribucaoint(wtapdelaymin - (wtapdelaymin * 0.25), wtapdelaymin + (wtapdelaymin * 1.25));
 		Sleep(delaywtap);
 
 		if (togglewtap && ligado && mouseDown && !(niggatitlenigga == janelaatual))
@@ -1187,7 +1218,7 @@ DWORD WINAPI TapThread() // thread dos clicks
 			wtapinput.ki.dwFlags = KEYEVENTF_KEYUP; // there is no KEYEVENTF_KEYDOWN
 			SendInput(1, &wtapinput, sizeof(INPUT));
 		}
-		
+
 		if (newslots[currentslot - 49])
 		{
 			slotpermitido = true;
@@ -1213,9 +1244,10 @@ DWORD WINAPI AutoPotThread() // thread dos clicks
 	numberinput.ki.dwExtraInfo = 0;
 	numberinput.ki.wVk = 0x53;
 	slotatual = slotmin;
-	while (imguicontrole) {
-		Sleep(autopotdelay/2);
-		float  autopotdelayrand = distribucaoint((autopotdelay * 0.75) , (autopotdelay * 1.25));
+	while (imguicontrole)
+	{
+		Sleep(autopotdelay / 2);
+		float autopotdelayrand = distribucaoint((autopotdelay * 0.75), (autopotdelay * 1.25));
 		if (autopotapply)
 		{
 			slotatual = slotmin;
@@ -1242,7 +1274,7 @@ DWORD WINAPI AutoPotThread() // thread dos clicks
 
 			Sleep(autopotdelayrand);
 			rightdown();
-			Sleep(distribucaoint(10,20));
+			Sleep(distribucaoint(10, 20));
 			rightup();
 
 			Sleep(autopotdelayrand);
@@ -1262,6 +1294,364 @@ DWORD WINAPI AutoPotThread() // thread dos clicks
 	return 0;
 }
 
+void loadconfig()
+{
+	ImGuiStyle& style = ImGui::GetStyle();
+
+	char* appdata = getenv("APPDATA");
+
+	confighash = "";
+	confighash = "\\" + confighashtemp;
+	std::string localconfig = appdata + confighash + ".ini";
+
+	if (is_file_exist(localconfig.c_str()))
+	{
+		string message = "Loaded config at " + localconfig;
+
+
+
+		char  strligado[100];
+		char  strnigga1[100];
+		char  strnigga2[100];
+		char  strrandomize[100];
+		char  strclickerkeybind[100];
+		char  strrefreshdelay[100];
+		char  strfilterslots[100];
+		char  strtextslot[100];
+		char  strsoundstoggle[100];
+		char  strselectedsound[100];
+		char  strbeepsound[100];
+		char  strslidernovo[100];
+
+		char  strjittertoggle[100];
+		char  strjitterclirk[100];
+		char  strjitterdelay[100];
+		char  strinventoryjitter[100];
+		char  strwindowonly[100];
+		char  strjanelaminecraftchar[100];
+		char  strrightmouseligado[100];
+		char  strinventoryonly[100];
+		char  strtogglesprint[100];
+		char  strtogglewtap[100];
+		char  strwtapdelaymin[100];
+		char  strblockhit[100];
+		char  strrandomizeblockhit[100];
+		char  strrandomizationpercentageblockhit[100];
+		char  strautopottoggle[100];
+		char  strautopotkeybind[100];
+
+		char  strslotsword[100];
+		char  strautopotdelay[100];
+		char  strslotmin[100];
+		char  strslotmax[100];
+
+		char  strcleanstrings[100];
+		char  strcleanfiles[100];
+		char  strcolor11[100];
+		char  strcolor12[100];
+		char  strcolor13[100];
+		char  strcolor14[100];
+		char  strcolor21[100];
+		char  strcolor22[100];
+		char  strcolor23[100];
+		char  strcolor24[100];
+
+		char  strcolor31[100];
+		char  strcolor32[100];
+		char  strcolor33[100];
+		char  strcolor34[100];
+
+		ligado = atoi(strligado);
+		nigga1 = atoi(strnigga1);
+		nigga2 = atoi(strnigga2);
+		randomize = atoi(strrandomize);
+		clickerkeybind = atoi(strclickerkeybind);
+		refreshdelay = atoi(strrefreshdelay);
+		filterslots = atoi(strfilterslots);
+		textslot = atoi(strtextslot);
+		soundstoggle = atoi(strsoundstoggle);
+		selectedsound = atoi(strselectedsound);
+		beeptoggle = atoi(strbeepsound);
+		slidernovo = atoi(strslidernovo);
+
+		jittertoggle = atoi(strjittertoggle);
+		jitterclirk = atoi(strjitterclirk);
+		jitterdelay = atoi(strjitterdelay);
+		inventoryjitter = atoi(strinventoryjitter);
+		windowonly = atoi(strwindowonly);
+		//janelaminecraftchar=strjanelaminecraftchar;
+		rightmouseligado = atoi(strrightmouseligado);
+		inventoryonly = atoi(strinventoryonly);
+		togglesprint = atoi(strtogglesprint);
+		togglewtap = atoi(strtogglewtap);
+		wtapdelaymin = atoi(strwtapdelaymin);
+		blockhit = atoi(strblockhit);
+		randomizeblockhit = atoi(strrandomizeblockhit);
+		randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
+		//strautopottoggle=atoi(strautopottoggle);
+		autopotkeybind = atoi(strautopotkeybind);
+
+		slotsword = atoi(strslotsword);
+		autopotdelay = atoi(strautopotdelay);
+		slotmin = atoi(strslotmin);
+		slotmax = atoi(strslotmax);
+
+		cleanstrings = atoi(strcleanstrings);
+		cleanfiles = atoi(strcleanfiles);
+		style.Colors[ImGuiCol_Text].w = atof(strcolor11);
+		style.Colors[ImGuiCol_Text].x = atof(strcolor12);
+		style.Colors[ImGuiCol_Text].y = atof(strcolor13);
+		style.Colors[ImGuiCol_Text].z = atof(strcolor14);
+		style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
+		style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
+		style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
+		style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
+		style.Colors[ImGuiCol_Button].w = atof(strcolor31);
+		style.Colors[ImGuiCol_Button].x = atof(strcolor32);
+		style.Colors[ImGuiCol_Button].y = atof(strcolor33);
+		style.Colors[ImGuiCol_Button].z = atof(strcolor34);
+
+		GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_toggle"), TEXT("0"), strligado, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("cps_min"), TEXT("7"), strnigga1, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("cps_max"), TEXT("12"), strnigga2, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("randomize_toggle"), TEXT("1"), strrandomize, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_keybind"), TEXT("115"), strclickerkeybind, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("refresh_delay"), TEXT("500"), strrefreshdelay, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_toggle"), TEXT("0"), strfilterslots, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_selectedslot"), TEXT("1"), strtextslot, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_toggle"), TEXT("0"), strsoundstoggle, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_selectedsound"), TEXT("0"), strselectedsound, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("beep_toggle"), TEXT("0"), strbeepsound, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("clicker"), TEXT("newslider_toggle"), TEXT("1"), strslidernovo, 100, (LPCSTR)localconfig.c_str());
+
+		GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_toggle"), TEXT("0"), strjittertoggle, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_strenght"), TEXT("1"), strjitterclirk, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_delay"), TEXT("50"), strjitterdelay, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_inventory"), TEXT("0"), strinventoryjitter, 100, (LPCSTR)localconfig.c_str());
+
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_windowonly"), TEXT("0"), strwindowonly, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_specifiedwindow"), TEXT("Minecraft"), strjanelaminecraftchar, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_rightclicker_toggle"), TEXT("0"), strrightmouseligado, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_inventory_toggle"), TEXT("0"), strinventoryonly, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_togglesprinttoggle"), TEXT("0"), strtogglesprint, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_toggle"), TEXT("0"), strtogglewtap, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_delay"), TEXT("100"), strwtapdelaymin, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_toggle"), TEXT("0"), strblockhit, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomize"), TEXT("0"), strrandomizeblockhit, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomizechance"), TEXT("40"), strrandomizationpercentageblockhit, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_toggle"), TEXT("0"), strautopottoggle, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_keybind"), TEXT("0"), strautopotkeybind, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_swordslot"), TEXT("1"), strslotsword, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_delay"), TEXT("100"), strautopotdelay, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_minslots"), TEXT("2"), strslotmin, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_maxslots"), TEXT("9"), strslotmax, 100, (LPCSTR)localconfig.c_str());
+
+		GetPrivateProfileString(TEXT("other"), TEXT("other_cleanstrings"), TEXT("1"), strcleanstrings, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_cleanfiles"), TEXT("1"), strcleanfiles, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color11"), TEXT("1"), strcolor11, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color12"), TEXT("0.8"), strcolor12, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color13"), TEXT("0.8"), strcolor13, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color14"), TEXT("0.8"), strcolor14, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color21"), TEXT("1"), strcolor21, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color22"), TEXT("0.07"), strcolor22, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color23"), TEXT("0.07"), strcolor23, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color24"), TEXT("0.09"), strcolor24, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color31"), TEXT("1"), strcolor31, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color32"), TEXT("0.1"), strcolor32, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color33"), TEXT("0.09"), strcolor33, 100, (LPCSTR)localconfig.c_str());
+		GetPrivateProfileString(TEXT("other"), TEXT("other_color34"), TEXT("0.12"), strcolor34, 100, (LPCSTR)localconfig.c_str());
+		ligado = atoi(strligado);
+		nigga1 = atoi(strnigga1);
+		nigga2 = atoi(strnigga2);
+		randomize = atoi(strrandomize);
+		clickerkeybind = atoi(strclickerkeybind);
+		refreshdelay = atoi(strrefreshdelay);
+		filterslots = atoi(strfilterslots);
+		textslot = atoi(strtextslot);
+		soundstoggle = atoi(strsoundstoggle);
+		selectedsound = atoi(strselectedsound);
+		beeptoggle = atoi(strbeepsound);
+		slidernovo = atoi(strslidernovo);
+
+		jittertoggle = atoi(strjittertoggle);
+		jitterclirk = atoi(strjitterclirk);
+		jitterdelay = atoi(strjitterdelay);
+		inventoryjitter = atoi(strinventoryjitter);
+		windowonly = atoi(strwindowonly);
+		//janelaminecraftchar=strjanelaminecraftchar;
+		rightmouseligado = atoi(strrightmouseligado);
+		inventoryonly = atoi(strinventoryonly);
+		togglesprint = atoi(strtogglesprint);
+		togglewtap = atoi(strtogglewtap);
+		wtapdelaymin = atoi(strwtapdelaymin);
+		blockhit = atoi(strblockhit);
+		randomizeblockhit = atoi(strrandomizeblockhit);
+		randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
+		//strautopottoggle=atoi(strautopottoggle);
+		autopotkeybind = atoi(strautopotkeybind);
+
+		slotsword = atoi(strslotsword);
+		autopotdelay = atoi(strautopotdelay);
+		slotmin = atoi(strslotmin);
+		slotmax = atoi(strslotmax);
+
+		cleanstrings = atoi(strcleanstrings);
+		cleanfiles = atoi(strcleanfiles);
+		style.Colors[ImGuiCol_Text].w = atof(strcolor11);
+		style.Colors[ImGuiCol_Text].x = atof(strcolor12);
+		style.Colors[ImGuiCol_Text].y = atof(strcolor13);
+		style.Colors[ImGuiCol_Text].z = atof(strcolor14);
+		style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
+		style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
+		style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
+		style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
+		style.Colors[ImGuiCol_Button].w = atof(strcolor31);
+		style.Colors[ImGuiCol_Button].x = atof(strcolor32);
+		style.Colors[ImGuiCol_Button].y = atof(strcolor33);
+		style.Colors[ImGuiCol_Button].z = atof(strcolor34);
+		
+
+		
+	}
+	
+
+}
+
+void saveconfig()
+{
+	ImGuiStyle& style = ImGui::GetStyle();
+	char* appdata = getenv("APPDATA");
+
+	username = "";
+	confighash = "\\" + confighash;
+	std::string localconfig = appdata + confighash + ".ini";
+
+
+	string message = "Saved config at " + localconfig;
+	MessageBox(nullptr, message.c_str(), "", MB_OK);
+
+
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicker_toggle"),
+		TEXT(to_string(ligado).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("cps_min"), TEXT(to_string(nigga1).c_str()),
+		(LPCSTR)localconfig.c_str());
+
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("cps_max"), TEXT(to_string(nigga2).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("randomize_toggle"),
+		TEXT(to_string(randomize).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicker_keybind"),
+		TEXT(to_string(clickerkeybind).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("refresh_delay"),
+		TEXT(to_string(refreshdelay).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("slotfilter_toggle"),
+		TEXT(to_string(filterslots).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("slotfilter_selectedslot"),
+		TEXT(to_string(textslot).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicksounds_toggle"),
+		TEXT(to_string(soundstoggle).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicksounds_selectedsound"),
+		TEXT(to_string(selectedsound).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("beep_toggle"),
+		TEXT(to_string(beeptoggle).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("clicker"), TEXT("newslider_toggle"),
+		TEXT(to_string(slidernovo).c_str()), (LPCSTR)localconfig.c_str());
+
+
+	WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_toggle"),
+		TEXT(to_string(jittertoggle).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_strength"),
+		TEXT(to_string(jitterclirk).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_delay"),
+		TEXT(to_string(jitterdelay).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_inventory"),
+		TEXT(to_string(inventoryjitter).c_str()),
+		(LPCSTR)localconfig.c_str());
+
+
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_windowonly"),
+		TEXT(to_string(windowonly).c_str()), (LPCSTR)localconfig.c_str());
+
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_specifiedwindow"),
+		TEXT(string(janelaminecraftchar).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_rightclicker_toggle"),
+		TEXT(to_string(rightmouseligado).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_inventorytoggle"),
+		TEXT(to_string(inventoryonly).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_togglesprinttoggle"),
+		TEXT(to_string(togglesprint).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_wtap_toggle"),
+		TEXT(to_string(togglewtap).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_wtap_delay"),
+		TEXT(to_string(wtapdelaymin).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_blockhit_toggle"),
+		TEXT(to_string(blockhit).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_blockhit_randomize"),
+		TEXT(to_string(randomizeblockhit).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_blockhit_randomizechance"),
+		TEXT(to_string(randomizationpercentageblockhit).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_toggle"),
+		TEXT(to_string(autopottoggle).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_keybind"),
+		TEXT(to_string(autopotkeybind).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_swordslot"),
+		TEXT(to_string(slotsword).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_delay"),
+		TEXT(to_string(autopotdelay).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_minslots"),
+		TEXT(to_string(slotmin).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_maxslots"),
+		TEXT(to_string(slotmax).c_str()), (LPCSTR)localconfig.c_str());
+
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_cleanstrings"),
+		TEXT(to_string(cleanstrings).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_cleanfiles"),
+		TEXT(to_string(cleanfiles).c_str()), (LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color11"),
+		TEXT(to_string(style.Colors[ImGuiCol_Text].w).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color12"),
+		TEXT(to_string(style.Colors[ImGuiCol_Text].x).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color13"),
+		TEXT(to_string(style.Colors[ImGuiCol_Text].y).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color14"),
+		TEXT(to_string(style.Colors[ImGuiCol_Text].z).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color21"),
+		TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].w).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color22"),
+		TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].x).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color23"),
+		TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].y).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color24"),
+		TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].z).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color31"),
+		TEXT(to_string(style.Colors[ImGuiCol_Button].w).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color32"),
+		TEXT(to_string(style.Colors[ImGuiCol_Button].x).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color33"),
+		TEXT(to_string(style.Colors[ImGuiCol_Button].y).c_str()),
+		(LPCSTR)localconfig.c_str());
+	WritePrivateProfileStringA(TEXT("other"), TEXT("other_color34"),
+		TEXT(to_string(style.Colors[ImGuiCol_Button].z).c_str()),
+		(LPCSTR)localconfig.c_str());
+}
+
+
 DWORD WINAPI JitterThread() // thread dos clicks
 {
 	while (imguicontrole)
@@ -1271,7 +1661,7 @@ DWORD WINAPI JitterThread() // thread dos clicks
 		{
 			int jitterez;
 			jitterez = distribucaoint(1, 8);
-			
+
 			if (windowonly)
 			{
 				if (minecraftaberto)
@@ -1280,18 +1670,19 @@ DWORD WINAPI JitterThread() // thread dos clicks
 					{
 						if (!openinventory)
 						{
-							switch (jitterez) {
+							switch (jitterez)
+							{
 							case 1:
 								MouseMove((mouse.x + jitterclirk), (mouse.y));
 								break;
 							case 2:
-								MouseMove((mouse.x ), (mouse.y + jitterclirk));
+								MouseMove((mouse.x), (mouse.y + jitterclirk));
 								break;
 							case 3:
 								MouseMove((mouse.x), (mouse.y - jitterclirk));
 								break;
 							case 4:
-								MouseMove((mouse.x - jitterclirk), (mouse.y ));
+								MouseMove((mouse.x - jitterclirk), (mouse.y));
 								break;
 							case 5:
 								MouseMove((mouse.x - jitterclirk), (mouse.y + jitterclirk));
@@ -1306,13 +1697,12 @@ DWORD WINAPI JitterThread() // thread dos clicks
 								MouseMove((mouse.x - jitterclirk), (mouse.y - jitterclirk));
 								break;
 							}
-
-							
 						}
 					}
 					else
 					{
-						switch (jitterez) {
+						switch (jitterez)
+						{
 						case 1:
 							MouseMove((mouse.x + jitterclirk), (mouse.y));
 							break;
@@ -1347,7 +1737,8 @@ DWORD WINAPI JitterThread() // thread dos clicks
 				{
 					if (!openinventory)
 					{
-						switch (jitterez) {
+						switch (jitterez)
+						{
 						case 1:
 							MouseMove((mouse.x + jitterclirk), (mouse.y));
 							break;
@@ -1377,7 +1768,8 @@ DWORD WINAPI JitterThread() // thread dos clicks
 				}
 				else
 				{
-					switch (jitterez) {
+					switch (jitterez)
+					{
 					case 1:
 						MouseMove((mouse.x + jitterclirk), (mouse.y));
 						break;
@@ -1410,7 +1802,8 @@ DWORD WINAPI JitterThread() // thread dos clicks
 	}
 	return 0;
 }
-void killProcessByName(const char *filename)
+
+void killProcessByName(const char* filename)
 {
 	HANDLE hSnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPALL, NULL);
 	PROCESSENTRY32 pEntry;
@@ -1421,8 +1814,8 @@ void killProcessByName(const char *filename)
 		if (strcmp(pEntry.szExeFile, filename) == 0)
 		{
 			HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, 0,
-				(DWORD)pEntry.th32ProcessID);
-			if (hProcess != NULL)
+			                              (DWORD)pEntry.th32ProcessID);
+			if (hProcess != nullptr)
 			{
 				TerminateProcess(hProcess, 9);
 				CloseHandle(hProcess);
@@ -1432,6 +1825,7 @@ void killProcessByName(const char *filename)
 	}
 	CloseHandle(hSnapShot);
 }
+
 bool CheckWindow()
 {
 	while (imguicontrole)
@@ -1442,13 +1836,14 @@ bool CheckWindow()
 			killProcessByName("ida32.exe");
 			killProcessByName("ida64.exe");
 			errorcondition = 2;
-			
-			ShellExecute(NULL, "open", "explorer", NULL, NULL, SW_SHOWDEFAULT);
+
+			ShellExecute(nullptr, "open", "explorer", nullptr, nullptr, SW_SHOWDEFAULT);
 			imguicontrole = false;
 			return true;
 		}
 		Sleep(1000);
-		if (isRunning("procexp.exe") || isRunning("ProcessHacker.exe") || isRunning("procexp64.exe") || isRunning("ProcMon.exe"))
+		if (isRunning("procexp.exe") || isRunning("ProcessHacker.exe") || isRunning("procexp64.exe") || isRunning(
+			"ProcMon.exe"))
 		{
 			killProcessByName("explorer.exe");
 			killProcessByName("procexp.exe");
@@ -1456,12 +1851,12 @@ bool CheckWindow()
 			killProcessByName("ProcMon.exe");
 			killProcessByName("ProcessHacker.exe");
 			errorcondition = 1;
-			ShellExecute(NULL, "open", "explorer", NULL, NULL, SW_SHOWDEFAULT);
+			ShellExecute(nullptr, "open", "explorer", nullptr, nullptr, SW_SHOWDEFAULT);
 			imguicontrole = false;
 			return true;
 		}
-		
-		
+
+
 		Sleep(1000);
 	}
 
@@ -1470,7 +1865,7 @@ bool CheckWindow()
 
 
 typedef void (WINAPI *pSleep)(DWORD);
-typedef BOOL(WINAPI *pDeleteFileA)(LPCSTR);
+typedef BOOL (WINAPI *pDeleteFileA)(LPCSTR);
 typedef void (WINAPI *pExitProcess)(UINT);
 
 typedef struct _SELFDEL
@@ -1480,7 +1875,7 @@ typedef struct _SELFDEL
 	pDeleteFileA fnDeleteFileA; // DeleteFileA function address
 	pExitProcess fnExitProcess; // ExitProcess function address
 	char FileName[100]; // File name
-}SELFDEL, *PSELFDEL;
+} SELFDEL, *PSELFDEL;
 
 static void WINAPI selfdel()
 {
@@ -1492,8 +1887,8 @@ static void WINAPI selfdel()
 
 		delta_offset :
 		pop eax
-			sub eax, 9
-			mov SelfDel, eax
+		sub eax, 9
+		mov SelfDel, eax
 	}
 
 	SelfDel--; // Get the address of the SELFDEL structure
@@ -1505,11 +1900,12 @@ static void WINAPI selfdel()
 
 
 static const char alphanum[] =
-"0123456789"
-"!@#$%^&*"
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-"abcdefghijklmnopqrstuvwxyz";
+	"0123456789"
+	"!@#$%^&*"
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	"abcdefghijklmnopqrstuvwxyz";
 int stringLength = sizeof(alphanum) - 1;
+
 std::string random_string(size_t length)
 {
 	auto randchar = []() -> char
@@ -1542,7 +1938,9 @@ static const WORD MAX_CONSOLE_LINES = 500;
 #include <vector>
 #include <algorithm>
 #include <iostream>
-struct convert {
+
+struct convert
+{
 	void operator()(char& c) { c = toupper((unsigned char)c); }
 };
 
@@ -1553,17 +1951,19 @@ public:
 	MyImwWindow2()
 	{
 	}
+
 	bool controlemysql1 = true;
 	bool conectado;
 	bool sanidade = false;
-	char * charhashpassword;
+	char* charhashpassword;
 	int colorpage = 0;
 	string hashpassword;
 	int tentativaerro = 0;
 	char* temppass;
-ImGuiStyle& style = ImGui::GetStyle();
-	bool controleloadconfig;
-	virtual void OnGui()
+	ImGuiStyle& style = ImGui::GetStyle();
+	
+
+	void OnGui() override
 	{
 		if (imguicontrole)
 		{
@@ -1584,229 +1984,24 @@ ImGuiStyle& style = ImGui::GetStyle();
 						string message = "Loaded config at " + localconfig;
 
 
-
-						char  strligado[100] = "";
-						char  strnigga1[100] = "";
-						char  strnigga2[100] = "";
-						char  strrandomize[100] = "";
-						char  strclickerkeybind[100] = "";
-						char  strrefreshdelay[100] = "";
-						char  strfilterslots[100] = "";
-						char  strtextslot[100] = "";
-						char  strsoundstoggle[100] = "";
-						char  strselectedsound[100] = "";
-						char  strbeepsound[100] = "";
-						char  strslidernovo[100] = "";
-
-						char  strjittertoggle[100] = "";
-						char  strjitterclirk[100] = "";
-						char  strjitterdelay[100] = "";
-						char  strinventoryjitter[100] = "";
-						char  strwindowonly[100] = "";
-						char  strjanelaminecraftchar[100] = "";
-						char  strrightmouseligado[100] = "";
-						char  strinventoryonly[100] = "";
-						char  strtogglesprint[100] = "";
-						char  strtogglewtap[100] = "";
-						char  strwtapdelaymin[100] = "";
-						char  strblockhit[100] = "";
-						char  strrandomizeblockhit[100] = "";
-						char  strrandomizationpercentageblockhit[100] = "";
-						char  strautopottoggle[100] = "";
-						char  strautopotkeybind[100] = "";
-
-						char  strslotsword[100] = "";
-						char  strautopotdelay[100] = "";
-						char  strslotmin[100] = "";
-						char  strslotmax[100] = "";
-
-						char  strcleanstrings[100] = "";
-						char  strcleanfiles[100] = "";
-						char  strcolor11[100] = "";
-						char  strcolor12[100] = "";
-						char  strcolor13[100] = "";
-						char  strcolor14[100] = "";
-						char  strcolor21[100] = "";
-						char  strcolor22[100] = "";
-						char  strcolor23[100] = "";
-						char  strcolor24[100] = "";
-
-						char  strcolor31[100] = "";
-						char  strcolor32[100] = "";
-						char  strcolor33[100] = "";
-						char  strcolor34[100] = "";
-
-						ligado = atoi(strligado);
-						nigga1 = atoi(strnigga1);
-						nigga2 = atoi(strnigga2);
-						randomize = atoi(strrandomize);
-						clickerkeybind = atoi(strclickerkeybind);
-						refreshdelay = atoi(strrefreshdelay);
-						filterslots = atoi(strfilterslots);
-						textslot = atoi(strtextslot);
-						soundstoggle = atoi(strsoundstoggle);
-						selectedsound = atoi(strselectedsound);
-						beeptoggle = atoi(strbeepsound);
-						slidernovo = atoi(strslidernovo);
-
-						jittertoggle = atoi(strjittertoggle);
-						jitterclirk = atoi(strjitterclirk);
-						jitterdelay = atoi(strjitterdelay);
-						inventoryjitter = atoi(strinventoryjitter);
-						windowonly = atoi(strwindowonly);
-						//janelaminecraftchar=strjanelaminecraftchar;
-						rightmouseligado = atoi(strrightmouseligado);
-						inventoryonly = atoi(strinventoryonly);
-						togglesprint = atoi(strtogglesprint);
-						togglewtap = atoi(strtogglewtap);
-						wtapdelaymin = atoi(strwtapdelaymin);
-						blockhit = atoi(strblockhit);
-						randomizeblockhit = atoi(strrandomizeblockhit);
-						randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-						//strautopottoggle=atoi(strautopottoggle);
-						autopotkeybind = atoi(strautopotkeybind);
-
-						slotsword = atoi(strslotsword);
-						autopotdelay = atoi(strautopotdelay);
-						slotmin = atoi(strslotmin);
-						slotmax = atoi(strslotmax);
-
-						cleanstrings = atoi(strcleanstrings);
-						cleanfiles = atoi(strcleanfiles);
-						style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-						style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-						style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-						style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-						style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-						style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-						style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-						style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-						style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-						style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-						style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-						style.Colors[ImGuiCol_Button].z = atof(strcolor34);
-
-						GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_toggle"), TEXT("0"), strligado, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("cps_min"), TEXT("7"), strnigga1, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("cps_max"), TEXT("12"), strnigga2, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("randomize_toggle"), TEXT("1"), strrandomize, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_keybind"), TEXT("115"), strclickerkeybind, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("refresh_delay"), TEXT("500"), strrefreshdelay, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_toggle"), TEXT("0"), strfilterslots, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_selectedslot"), TEXT("1"), strtextslot, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_toggle"), TEXT("0"), strsoundstoggle, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_selectedsound"), TEXT("0"), strselectedsound, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("beep_toggle"), TEXT("0"), strbeepsound, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("clicker"), TEXT("newslider_toggle"), TEXT("1"), strslidernovo, 100, (LPCSTR)localconfig.c_str());
-
-						GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_toggle"), TEXT("0"), strjittertoggle, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_strenght"), TEXT("1"), strjitterclirk, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_delay"), TEXT("50"), strjitterdelay, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_inventory"), TEXT("0"), strinventoryjitter, 100, (LPCSTR)localconfig.c_str());
-
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_windowonly"), TEXT("0"), strwindowonly, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_specifiedwindow"), TEXT("Minecraft"), strjanelaminecraftchar, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_rightclicker_toggle"), TEXT("0"), strrightmouseligado, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_inventory_toggle"), TEXT("0"), strinventoryonly, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_togglesprinttoggle"), TEXT("0"), strtogglesprint, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_toggle"), TEXT("0"), strtogglewtap, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_delay"), TEXT("100"), strwtapdelaymin, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_toggle"), TEXT("0"), strblockhit, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomize"), TEXT("0"), strrandomizeblockhit, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomizechance"), TEXT("40"), strrandomizationpercentageblockhit, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_toggle"), TEXT("0"), strautopottoggle, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_keybind"), TEXT("0"), strautopotkeybind, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_swordslot"), TEXT("1"), strslotsword, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_delay"), TEXT("100"), strautopotdelay, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_minslots"), TEXT("2"), strslotmin, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_maxslots"), TEXT("9"), strslotmax, 100, (LPCSTR)localconfig.c_str());
-
-						GetPrivateProfileString(TEXT("other"), TEXT("other_cleanstrings"), TEXT("1"), strcleanstrings, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_cleanfiles"), TEXT("1"), strcleanfiles, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color11"), TEXT("1"), strcolor11, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color12"), TEXT("0.8"), strcolor12, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color13"), TEXT("0.8"), strcolor13, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color14"), TEXT("0.8"), strcolor14, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color21"), TEXT("1"), strcolor21, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color22"), TEXT("0.07"), strcolor22, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color23"), TEXT("0.07"), strcolor23, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color24"), TEXT("0.09"), strcolor24, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color31"), TEXT("1"), strcolor31, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color32"), TEXT("0.1"), strcolor32, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color33"), TEXT("0.09"), strcolor33, 100, (LPCSTR)localconfig.c_str());
-						GetPrivateProfileString(TEXT("other"), TEXT("other_color34"), TEXT("0.12"), strcolor34, 100, (LPCSTR)localconfig.c_str());
-						ligado = atoi(strligado);
-						nigga1 = atoi(strnigga1);
-						nigga2 = atoi(strnigga2);
-						randomize = atoi(strrandomize);
-						clickerkeybind = atoi(strclickerkeybind);
-						refreshdelay = atoi(strrefreshdelay);
-						filterslots = atoi(strfilterslots);
-						textslot = atoi(strtextslot);
-						soundstoggle = atoi(strsoundstoggle);
-						selectedsound = atoi(strselectedsound);
-						beeptoggle = atoi(strbeepsound);
-						slidernovo = atoi(strslidernovo);
-
-						jittertoggle = atoi(strjittertoggle);
-						jitterclirk = atoi(strjitterclirk);
-						jitterdelay = atoi(strjitterdelay);
-						inventoryjitter = atoi(strinventoryjitter);
-						windowonly = atoi(strwindowonly);
-						//janelaminecraftchar=strjanelaminecraftchar;
-						rightmouseligado = atoi(strrightmouseligado);
-						inventoryonly = atoi(strinventoryonly);
-						togglesprint = atoi(strtogglesprint);
-						togglewtap = atoi(strtogglewtap);
-						wtapdelaymin = atoi(strwtapdelaymin);
-						blockhit = atoi(strblockhit);
-						randomizeblockhit = atoi(strrandomizeblockhit);
-						randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-						//strautopottoggle=atoi(strautopottoggle);
-						autopotkeybind = atoi(strautopotkeybind);
-
-						slotsword = atoi(strslotsword);
-						autopotdelay = atoi(strautopotdelay);
-						slotmin = atoi(strslotmin);
-						slotmax = atoi(strslotmax);
-
-						cleanstrings = atoi(strcleanstrings);
-						cleanfiles = atoi(strcleanfiles);
-						style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-						style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-						style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-						style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-						style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-						style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-						style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-						style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-						style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-						style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-						style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-						style.Colors[ImGuiCol_Button].z = atof(strcolor34);
-						
-
+						loadconfig();
 					}
-
-
 				}
-				static float nigga3;
+				
 
 				controle = 1;
 
 				const char* tabs[] = {
-				"Main",
-				"Auto",
-				"Misc",
-				"Other"
+					"Main",
+					"Auto",
+					"Misc",
+					"Other"
 				};
 				ImGuiStyle& style = ImGui::GetStyle();
 				//ImGui::Text("MonkeyClicker 2.42");
 				ImGui::SameLine();
-				if (ImGui::Button("MonkeyClicker 2.42"))
+				if (ImGui::Button("MonkeyClicker 2.43"))
 				{
-					
-
 				}
 
 				for (int i = 0; i < IM_ARRAYSIZE(tabs); i++)
@@ -1845,11 +2040,11 @@ ImGuiStyle& style = ImGui::GetStyle();
 						if (slidernovo)
 						{
 							ImGui::SliderInt("CPS", &nigga1, 6, 25);
-							
+
 
 							ImGui::SameLine();
 							ImGui::Checkbox("Randomize", &randomize);
-							if (ImGui:: IsItemHovered())
+							if (ImGui::IsItemHovered())
 								ImGui::SetTooltip("Randomize the CPS the clicker will work at");
 						}
 						else
@@ -1860,7 +2055,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 						ImGui::Spacing();
 						ImGui::InputInt("CPS Refresh Delay###refreshdelay", &refreshdelay, 100);
 					}
-					
+
 					if (ligado)
 					{
 						ImGui::Spacing();
@@ -1872,7 +2067,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 						ImGui::SetTooltip("Makes the autoclicker \nonly work on certain slots");
 					int indexslots;
 					int ind;
-					
+
 					int conditiontext;
 					for (ind = 0; ind <= 8; ind++)
 					{
@@ -1884,7 +2079,9 @@ ImGuiStyle& style = ImGui::GetStyle();
 						{
 							contagemtext--;
 						}
-						if (contagemtext == 9) conditiontext = 2; else if (contagemtext == -9) conditiontext = 3; else conditiontext = 1;
+						if (contagemtext == 9) conditiontext = 2;
+						else if (contagemtext == -9) conditiontext = 3;
+						else conditiontext = 1;
 					}
 					if (filterslots)
 					{
@@ -1892,11 +2089,10 @@ ImGuiStyle& style = ImGui::GetStyle();
 						{
 							ImGui::Text("Allowed Slots");
 						}
-						
+
 
 						for (indexslots = 0; indexslots <= 8; indexslots++)
 						{
-
 							if (newslots[indexslots] == true)
 							{
 								std::string s = std::to_string(indexslots + 1);
@@ -1904,20 +2100,12 @@ ImGuiStyle& style = ImGui::GetStyle();
 								if (ImGui::Button(s.c_str()))
 								{
 									newslots[indexslots] = !(newslots[indexslots]);
-
-
-
-
-
-
-
 								}
 
 								if (indexslots != 8)
 								{
 									ImGui::SameLine();
 								}
-
 							}
 						}
 
@@ -1926,7 +2114,6 @@ ImGuiStyle& style = ImGui::GetStyle();
 						if (!(conditiontext == 2)) ImGui::Text("Blocked Slots");
 						for (indexslots = 0; indexslots <= 8; indexslots++)
 						{
-
 							if (newslots[indexslots] == false)
 							{
 								std::string s = std::to_string(indexslots + 1);
@@ -1934,24 +2121,16 @@ ImGuiStyle& style = ImGui::GetStyle();
 								if (ImGui::Button(s.c_str()))
 								{
 									newslots[indexslots] = !(newslots[indexslots]);
-
-
-
-
-
-
-
 								}
 
 								if (indexslots != 8)
 								{
 									ImGui::SameLine();
 								}
-
 							}
 						}
 					}
-					
+
 					ImGui::Text("");
 					/*ImGui::SameLine();
 					ImGui::InputInt("Slot###textslot", &textslot);
@@ -1959,7 +2138,8 @@ ImGuiStyle& style = ImGui::GetStyle();
 						ImGui::SetTooltip("Slot which the autoclicker \nwill work if Only Weapon is activated");*/
 
 					ImGui::Spacing();
-					ImGui::Checkbox("Click Sounds###soundstoggle", &soundstoggle); ImGui::SameLine();
+					ImGui::Checkbox("Click Sounds###soundstoggle", &soundstoggle);
+					ImGui::SameLine();
 					if (ImGui::IsItemHovered())
 						ImGui::SetTooltip("Clicker will play mouse-sounds \ntogether with the clicking");
 
@@ -1967,8 +2147,6 @@ ImGuiStyle& style = ImGui::GetStyle();
 					if (ImGui::IsItemHovered())
 						ImGui::SetTooltip("Sound the Click Sounds feature will play");
 
-					
-					
 
 					break;
 
@@ -2004,11 +2182,12 @@ ImGuiStyle& style = ImGui::GetStyle();
 					ImGui::Spacing();
 					if (blockhit && randomizeblockhit)
 					{
-						ImGui::SliderInt("Chance###randomizationpercentageblockhit", &randomizationpercentageblockhit, 5, 100);
+						ImGui::SliderInt("Chance###randomizationpercentageblockhit", &randomizationpercentageblockhit,
+						                 5, 100);
 						if (ImGui::IsItemHovered())
 							ImGui::SetTooltip("Chance of blockhit randomization");
 					}
-					
+
 
 					ImGui::Checkbox("AutoPot###autopottoggle", &autopottoggle);
 					if (ImGui::IsItemHovered())
@@ -2038,7 +2217,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 						ImGui::SetTooltip("Update Values");
 					ImGui::Spacing();
 
-					
+
 					break;
 
 				case 2:
@@ -2051,7 +2230,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 					ImGui::InputText("Name###janelaminecraftchar", janelaminecraftchar, 64);
 					if (ImGui::IsItemHovered())
 						ImGui::SetTooltip("Name of the window");
-					
+
 
 					ImGui::Checkbox("Allow Inventory###inventoryonly", &inventoryonly);
 					if (ImGui::IsItemHovered())
@@ -2061,8 +2240,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 					if (ImGui::IsItemHovered())
 						ImGui::SetTooltip("Will sprint automatically for the user");
 
-					
-					
+
 					ImGui::Spacing();
 
 					ImGui::Separator();
@@ -2091,14 +2269,14 @@ ImGuiStyle& style = ImGui::GetStyle();
 					ImGui::SameLine();
 					ImGui::Checkbox("New Slider###slidernovo", &slidernovo);
 					if (ImGui::IsItemHovered())
-						ImGui::SetTooltip("If this is enabled the autoclicker \nwill choose your CPS range \nautomatically (still need to set CPS)");
-					
-					
+						ImGui::SetTooltip(
+							"If this is enabled the autoclicker \nwill choose your CPS range \nautomatically (still need to set CPS)");
+
 
 					break;
 
 				case 3:
-					
+
 					if (ImGui::Button("Self-Destruct (F9)"))
 					{
 						imguicontrole = false;
@@ -2110,26 +2288,24 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 					ImGui::SameLine(0.0F, -200.0F);
 					ImGui::Checkbox("Delete Traces", &cleanfiles);
-						if (ImGui::IsItemHovered())
+					if (ImGui::IsItemHovered())
 						ImGui::SetTooltip("Will delete \nRegistry traces\nPrefetch Traces\n also will delete itself");
-						ImGui::Checkbox("Delete Configs", &destructconfig); 
-						if (ImGui::IsItemHovered())
-							ImGui::SetTooltip("Will delete your configs");
-			
-						
-						
-						
-						ImGui::SameLine();
+					ImGui::Checkbox("Delete Configs", &destructconfig);
+					if (ImGui::IsItemHovered())
+						ImGui::SetTooltip("Will delete your configs");
 
-						ImGui::Checkbox("Self-Delete", &selfdeletetoggle);
-						if (ImGui::IsItemHovered())
-							ImGui::SetTooltip("Will make the clicker delete \nitself after it's self-destructed");
 
-					
+					ImGui::SameLine();
+
+					ImGui::Checkbox("Self-Delete", &selfdeletetoggle);
+					if (ImGui::IsItemHovered())
+						ImGui::SetTooltip("Will make the clicker delete \nitself after it's self-destructed");
+
+
 					ImGui::Spacing();
 
 					if (ImGui::Button("Hide (END)"))
-						
+
 					{
 						hidewindowtoggle = !hidewindowtoggle;
 						controlehidewindow = 1;
@@ -2137,78 +2313,11 @@ ImGuiStyle& style = ImGui::GetStyle();
 					ImGui::SameLine();
 					if (ImGui::Button("Save Config"))
 					{
-						char* appdata = getenv("APPDATA");
-
-						username = "";
-						confighash = "\\" + confighash;
-						std::string localconfig = appdata + confighash + ".ini";
-
-
-						string message = "Saved config at " + localconfig;
-						MessageBox(NULL, message.c_str(), "", MB_OK);
-
-
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicker_toggle"), TEXT(to_string(ligado).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("cps_min"), TEXT(to_string(nigga1).c_str()), (LPCSTR)localconfig.c_str());
-
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("cps_max"), TEXT(to_string(nigga2).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("randomize_toggle"), TEXT(to_string(randomize).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicker_keybind"), TEXT(to_string(clickerkeybind).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("refresh_delay"), TEXT(to_string(refreshdelay).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("slotfilter_toggle"), TEXT(to_string(filterslots).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("slotfilter_selectedslot"), TEXT(to_string(textslot).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicksounds_toggle"), TEXT(to_string(soundstoggle).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("clicksounds_selectedsound"), TEXT(to_string(selectedsound).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("beep_toggle"), TEXT(to_string(beeptoggle).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("clicker"), TEXT("newslider_toggle"), TEXT(to_string(slidernovo).c_str()), (LPCSTR)localconfig.c_str());
-
-
-						WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_toggle"), TEXT(to_string(jittertoggle).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_strength"), TEXT(to_string(jitterclirk).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_delay"), TEXT(to_string(jitterdelay).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("jitter"), TEXT("jitter_inventory"), TEXT(to_string(inventoryjitter).c_str()), (LPCSTR)localconfig.c_str());
-
-
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_windowonly"), TEXT(to_string(windowonly).c_str()), (LPCSTR)localconfig.c_str());
-
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_specifiedwindow"), TEXT(string(janelaminecraftchar).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_rightclicker_toggle"), TEXT(to_string(rightmouseligado).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_inventorytoggle"), TEXT(to_string(inventoryonly).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_togglesprinttoggle"), TEXT(to_string(togglesprint).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_wtap_toggle"), TEXT(to_string(togglewtap).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_wtap_delay"), TEXT(to_string(wtapdelaymin).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_blockhit_toggle"), TEXT(to_string(blockhit).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_blockhit_randomize"), TEXT(to_string(randomizeblockhit).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_blockhit_randomizechance"), TEXT(to_string(randomizationpercentageblockhit).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_toggle"), TEXT(to_string(autopottoggle).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_keybind"), TEXT(to_string(autopotkeybind).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_swordslot"), TEXT(to_string(slotsword).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_delay"), TEXT(to_string(autopotdelay).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_minslots"), TEXT(to_string(slotmin).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("misc"), TEXT("misc_autopot_maxslots"), TEXT(to_string(slotmax).c_str()), (LPCSTR)localconfig.c_str());
-
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_cleanstrings"), TEXT(to_string(cleanstrings).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_cleanfiles"), TEXT(to_string(cleanfiles).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color11"), TEXT(to_string(style.Colors[ImGuiCol_Text].w).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color12"), TEXT(to_string(style.Colors[ImGuiCol_Text].x).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color13"), TEXT(to_string(style.Colors[ImGuiCol_Text].y).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color14"), TEXT(to_string(style.Colors[ImGuiCol_Text].z).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color21"), TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].w).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color22"), TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].x).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color23"), TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].y).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color24"), TEXT(to_string(style.Colors[ImGuiCol_ChildWindowBg].z).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color31"), TEXT(to_string(style.Colors[ImGuiCol_Button].w).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color32"), TEXT(to_string(style.Colors[ImGuiCol_Button].x).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color33"), TEXT(to_string(style.Colors[ImGuiCol_Button].y).c_str()), (LPCSTR)localconfig.c_str());
-						WritePrivateProfileStringA(TEXT("other"), TEXT("other_color34"), TEXT(to_string(style.Colors[ImGuiCol_Button].z).c_str()), (LPCSTR)localconfig.c_str());
-
-
+						saveconfig();
 					}
 					ImGui::SameLine();
 					if (ImGui::Button("Load Config"))
 					{
-
-
 						char* appdata = getenv("APPDATA");
 
 						confighash = "";
@@ -2218,218 +2327,15 @@ ImGuiStyle& style = ImGui::GetStyle();
 						if (is_file_exist(localconfig.c_str()))
 						{
 							string message = "Loaded config at " + localconfig;
+							loadconfig();
+							
 
-
-
-							char  strligado[100];
-							char  strnigga1[100];
-							char  strnigga2[100];
-							char  strrandomize[100];
-							char  strclickerkeybind[100];
-							char  strrefreshdelay[100];
-							char  strfilterslots[100];
-							char  strtextslot[100];
-							char  strsoundstoggle[100];
-							char  strselectedsound[100];
-							char  strbeepsound[100];
-							char  strslidernovo[100];
-
-							char  strjittertoggle[100];
-							char  strjitterclirk[100];
-							char  strjitterdelay[100];
-							char  strinventoryjitter[100];
-							char  strwindowonly[100];
-							char  strjanelaminecraftchar[100];
-							char  strrightmouseligado[100];
-							char  strinventoryonly[100];
-							char  strtogglesprint[100];
-							char  strtogglewtap[100];
-							char  strwtapdelaymin[100];
-							char  strblockhit[100];
-							char  strrandomizeblockhit[100];
-							char  strrandomizationpercentageblockhit[100];
-							char  strautopottoggle[100];
-							char  strautopotkeybind[100];
-
-							char  strslotsword[100];
-							char  strautopotdelay[100];
-							char  strslotmin[100];
-							char  strslotmax[100];
-
-							char  strcleanstrings[100];
-							char  strcleanfiles[100];
-							char  strcolor11[100];
-							char  strcolor12[100];
-							char  strcolor13[100];
-							char  strcolor14[100];
-							char  strcolor21[100];
-							char  strcolor22[100];
-							char  strcolor23[100];
-							char  strcolor24[100];
-
-							char  strcolor31[100];
-							char  strcolor32[100];
-							char  strcolor33[100];
-							char  strcolor34[100];
-
-							ligado = atoi(strligado);
-							nigga1 = atoi(strnigga1);
-							nigga2 = atoi(strnigga2);
-							randomize = atoi(strrandomize);
-							clickerkeybind = atoi(strclickerkeybind);
-							refreshdelay = atoi(strrefreshdelay);
-							filterslots = atoi(strfilterslots);
-							textslot = atoi(strtextslot);
-							soundstoggle = atoi(strsoundstoggle);
-							selectedsound = atoi(strselectedsound);
-							beeptoggle = atoi(strbeepsound);
-							slidernovo = atoi(strslidernovo);
-
-							jittertoggle = atoi(strjittertoggle);
-							jitterclirk = atoi(strjitterclirk);
-							jitterdelay = atoi(strjitterdelay);
-							inventoryjitter = atoi(strinventoryjitter);
-							windowonly = atoi(strwindowonly);
-							//janelaminecraftchar=strjanelaminecraftchar;
-							rightmouseligado = atoi(strrightmouseligado);
-							inventoryonly = atoi(strinventoryonly);
-							togglesprint = atoi(strtogglesprint);
-							togglewtap = atoi(strtogglewtap);
-							wtapdelaymin = atoi(strwtapdelaymin);
-							blockhit = atoi(strblockhit);
-							randomizeblockhit = atoi(strrandomizeblockhit);
-							randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-							//strautopottoggle=atoi(strautopottoggle);
-							autopotkeybind = atoi(strautopotkeybind);
-
-							slotsword = atoi(strslotsword);
-							autopotdelay = atoi(strautopotdelay);
-							slotmin = atoi(strslotmin);
-							slotmax = atoi(strslotmax);
-
-							cleanstrings = atoi(strcleanstrings);
-							cleanfiles = atoi(strcleanfiles);
-							style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-							style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-							style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-							style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-							style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-							style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-							style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-							style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-							style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-							style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-							style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-							style.Colors[ImGuiCol_Button].z = atof(strcolor34);
-
-							GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_toggle"), TEXT("0"), strligado, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("cps_min"), TEXT("7"), strnigga1, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("cps_max"), TEXT("12"), strnigga2, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("randomize_toggle"), TEXT("1"), strrandomize, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_keybind"), TEXT("115"), strclickerkeybind, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("refresh_delay"), TEXT("500"), strrefreshdelay, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_toggle"), TEXT("0"), strfilterslots, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_selectedslot"), TEXT("1"), strtextslot, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_toggle"), TEXT("0"), strsoundstoggle, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_selectedsound"), TEXT("0"), strselectedsound, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("beep_toggle"), TEXT("0"), strbeepsound, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("clicker"), TEXT("newslider_toggle"), TEXT("1"), strslidernovo, 100, (LPCSTR)localconfig.c_str());
-
-							GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_toggle"), TEXT("0"), strjittertoggle, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_strenght"), TEXT("1"), strjitterclirk, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_delay"), TEXT("50"), strjitterdelay, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_inventory"), TEXT("0"), strinventoryjitter, 100, (LPCSTR)localconfig.c_str());
-
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_windowonly"), TEXT("0"), strwindowonly, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_specifiedwindow"), TEXT("Minecraft"), strjanelaminecraftchar, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_rightclicker_toggle"), TEXT("0"), strrightmouseligado, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_inventory_toggle"), TEXT("0"), strinventoryonly, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_togglesprinttoggle"), TEXT("0"), strtogglesprint, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_toggle"), TEXT("0"), strtogglewtap, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_delay"), TEXT("100"), strwtapdelaymin, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_toggle"), TEXT("0"), strblockhit, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomize"), TEXT("0"), strrandomizeblockhit, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomizechance"), TEXT("40"), strrandomizationpercentageblockhit, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_toggle"), TEXT("0"), strautopottoggle, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_keybind"), TEXT("0"), strautopotkeybind, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_swordslot"), TEXT("1"), strslotsword, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_delay"), TEXT("100"), strautopotdelay, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_minslots"), TEXT("2"), strslotmin, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_maxslots"), TEXT("9"), strslotmax, 100, (LPCSTR)localconfig.c_str());
-
-							GetPrivateProfileString(TEXT("other"), TEXT("other_cleanstrings"), TEXT("1"), strcleanstrings, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_cleanfiles"), TEXT("1"), strcleanfiles, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color11"), TEXT("1"), strcolor11, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color12"), TEXT("0.8"), strcolor12, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color13"), TEXT("0.8"), strcolor13, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color14"), TEXT("0.8"), strcolor14, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color21"), TEXT("1"), strcolor21, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color22"), TEXT("0.07"), strcolor22, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color23"), TEXT("0.07"), strcolor23, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color24"), TEXT("0.09"), strcolor24, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color31"), TEXT("1"), strcolor31, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color32"), TEXT("0.1"), strcolor32, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color33"), TEXT("0.09"), strcolor33, 100, (LPCSTR)localconfig.c_str());
-							GetPrivateProfileString(TEXT("other"), TEXT("other_color34"), TEXT("0.12"), strcolor34, 100, (LPCSTR)localconfig.c_str());
-							ligado = atoi(strligado);
-							nigga1 = atoi(strnigga1);
-							nigga2 = atoi(strnigga2);
-							randomize = atoi(strrandomize);
-							clickerkeybind = atoi(strclickerkeybind);
-							refreshdelay = atoi(strrefreshdelay);
-							filterslots = atoi(strfilterslots);
-							textslot = atoi(strtextslot);
-							soundstoggle = atoi(strsoundstoggle);
-							selectedsound = atoi(strselectedsound);
-							beeptoggle = atoi(strbeepsound);
-							slidernovo = atoi(strslidernovo);
-
-							jittertoggle = atoi(strjittertoggle);
-							jitterclirk = atoi(strjitterclirk);
-							jitterdelay = atoi(strjitterdelay);
-							inventoryjitter = atoi(strinventoryjitter);
-							windowonly = atoi(strwindowonly);
-							//janelaminecraftchar=strjanelaminecraftchar;
-							rightmouseligado = atoi(strrightmouseligado);
-							inventoryonly = atoi(strinventoryonly);
-							togglesprint = atoi(strtogglesprint);
-							togglewtap = atoi(strtogglewtap);
-							wtapdelaymin = atoi(strwtapdelaymin);
-							blockhit = atoi(strblockhit);
-							randomizeblockhit = atoi(strrandomizeblockhit);
-							randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-							//strautopottoggle=atoi(strautopottoggle);
-							autopotkeybind = atoi(strautopotkeybind);
-
-							slotsword = atoi(strslotsword);
-							autopotdelay = atoi(strautopotdelay);
-							slotmin = atoi(strslotmin);
-							slotmax = atoi(strslotmax);
-
-							cleanstrings = atoi(strcleanstrings);
-							cleanfiles = atoi(strcleanfiles);
-							style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-							style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-							style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-							style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-							style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-							style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-							style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-							style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-							style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-							style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-							style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-							style.Colors[ImGuiCol_Button].z = atof(strcolor34);
-							controleloadconfig = true;
-
-
-							MessageBox(NULL, message.c_str(), "", MB_OK);
+							MessageBox(nullptr, message.c_str(), "", MB_OK);
 						}
 						else
 						{
-							MessageBox(NULL, "Config not Found!", "", MB_OK);
+							MessageBox(nullptr, "Config not Found!", "", MB_OK);
 						}
-
 					}
 					ImGui::SameLine();
 					if (ImGui::Button("Edit Config"))
@@ -2439,22 +2345,21 @@ ImGuiStyle& style = ImGui::GetStyle();
 						confighash = "";
 						confighash = "\\" + confighashtemp;
 						std::string localconfig = appdata + confighash + ".ini";
-						ShellExecute(NULL, "open", localconfig.c_str(), NULL, NULL, SW_SHOWDEFAULT);
+						ShellExecute(nullptr, "open", localconfig.c_str(), nullptr, nullptr, SW_SHOWDEFAULT);
 					}
 					if (ImGui::IsItemHovered())
 						ImGui::SetTooltip("Hide Autoclicker Window\nDon't forget to self-destruct\nShortcut: END");
 					if (ImGui::Button("Changelog"))
 					{
-						ShellExecute(0, 0, (LPCSTR)"https://www.monkeyclicker.xyz/changelog/", 0, 0, SW_SHOW);
-
+						ShellExecute(nullptr, nullptr, (LPCSTR)"https://www.monkeyclicker.xyz/changelog/", nullptr,
+						             nullptr, SW_SHOW);
 					}
 					if (colorpage == 0)
 					{
 						ImGui::Text("Edit Text Color");
 						ImGui::ColorEdit3(&style.Colors[ImGuiCol_Text].x, true);
-						
-							  
-						
+
+
 						ImGui::Spacing();
 						if (ImGui::Button("Text Color"))
 						{
@@ -2475,9 +2380,8 @@ ImGuiStyle& style = ImGui::GetStyle();
 						{
 							ImGui::Text("Edit Background Color");
 							ImGui::ColorEdit3(&style.Colors[ImGuiCol_ChildWindowBg].x, true);
-							
-							 
-							
+
+
 							ImGui::Spacing();
 							if (ImGui::Button("Text Color"))
 							{
@@ -2498,9 +2402,8 @@ ImGuiStyle& style = ImGui::GetStyle();
 							{
 								ImGui::Text("Edit Button Color");
 								ImGui::ColorEdit3(&style.Colors[ImGuiCol_Button].x, true);
-								
-								
-								
+
+
 								ImGui::Spacing();
 								if (ImGui::Button("Text Color"))
 								{
@@ -2516,10 +2419,9 @@ ImGuiStyle& style = ImGui::GetStyle();
 								}
 							}
 						}
-						
 					}
 					ImGui::Spacing();
-					
+
 
 					//ImGui::ColorEdit4("Text Color", &style.Colors[ImGuiCol_Text].x, true);
 					//ImGui::ColorEdit4("Background Color", &style.Colors[ImGuiCol_ChildWindowBg].x, true);
@@ -2547,22 +2449,27 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Min Delay: %f", cps_max_ms);
 					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Beep Status: %d", beepstatus);
-					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is the Chat open: %s", chatopen ? "yes!" : "no");
-					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Clicker Thread Life Status: %s", vidaclicker ? "alive" : "dead");
+					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is the Chat open: %s",
+					                   chatopen ? "yes!" : "no");
+					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Clicker Thread Life Status: %s",
+					                   vidaclicker ? "alive" : "dead");
 					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Mouse Down: %s", mouseDown ? "yes" : "no");
 
-					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Current Slot: %d", currentslot-48);
+					ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Current Slot: %d", currentslot - 48);
 					if (windowonly)
 					{
-						ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is Minecraft Window Active? %s", minecraftaberto ? "yes!" : "no");
+						ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is Minecraft Window Active? %s",
+						                   minecraftaberto ? "yes!" : "no");
 					}
 					if (inventoryonly)
 					{
-						ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is the inventory Open? %s", openinventory ? "yes!" : "no");
+						ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is the inventory Open? %s",
+						                   openinventory ? "yes!" : "no");
 					}
 					if (togglesprint)
 					{
-						ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is the player walking? %s", issprinting ? "yes!" : "no");
+						ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Is the player walking? %s",
+						                   issprinting ? "yes!" : "no");
 					}
 					if (jittertoggle)
 					{
@@ -2574,224 +2481,14 @@ ImGuiStyle& style = ImGui::GetStyle();
 			}
 			else
 			{
-			for (static bool first = true; first; first = false)
-			{
-				ImGuiStyle& style = ImGui::GetStyle();
-				std::string localconfig = confighash + ".ini";
-
-
-				string message = "Loaded config at " + localconfig;
-
-
-
-				char  strligado[100];
-				char  strnigga1[100];
-				char  strnigga2[100];
-				char  strrandomize[100];
-				char  strclickerkeybind[100];
-				char  strrefreshdelay[100];
-				char  strfilterslots[100];
-				char  strtextslot[100];
-				char  strsoundstoggle[100];
-				char  strselectedsound[100];
-				char  strbeepsound[100];
-				char  strslidernovo[100];
-
-				char  strjittertoggle[100];
-				char  strjitterclirk[100];
-				char  strjitterdelay[100];
-				char  strinventoryjitter[100];
-				char  strwindowonly[100];
-				char  strjanelaminecraftchar[100];
-				char  strrightmouseligado[100];
-				char  strinventoryonly[100];
-				char  strtogglesprint[100];
-				char  strtogglewtap[100];
-				char  strwtapdelaymin[100];
-				char  strblockhit[100];
-				char  strrandomizeblockhit[100];
-				char  strrandomizationpercentageblockhit[100];
-				char  strautopottoggle[100];
-				char  strautopotkeybind[100];
-
-				char  strslotsword[100];
-				char  strautopotdelay[100];
-				char  strslotmin[100];
-				char  strslotmax[100];
-
-				char  strcleanstrings[100];
-				char  strcleanfiles[100];
-				char  strcolor11[100];
-				char  strcolor12[100];
-				char  strcolor13[100];
-				char  strcolor14[100];
-				char  strcolor21[100];
-				char  strcolor22[100];
-				char  strcolor23[100];
-				char  strcolor24[100];
-
-				char  strcolor31[100];
-				char  strcolor32[100];
-				char  strcolor33[100];
-				char  strcolor34[100];
-
-				ligado = atoi(strligado);
-				nigga1 = atoi(strnigga1);
-				nigga2 = atoi(strnigga2);
-				randomize = atoi(strrandomize);
-				clickerkeybind = atoi(strclickerkeybind);
-				refreshdelay = atoi(strrefreshdelay);
-				filterslots = atoi(strfilterslots);
-				textslot = atoi(strtextslot);
-				soundstoggle = atoi(strsoundstoggle);
-				selectedsound = atoi(strselectedsound);
-				beeptoggle = atoi(strbeepsound);
-				slidernovo = atoi(strslidernovo);
-
-				jittertoggle = atoi(strjittertoggle);
-				jitterclirk = atoi(strjitterclirk);
-				jitterdelay = atoi(strjitterdelay);
-				inventoryjitter = atoi(strinventoryjitter);
-				windowonly = atoi(strwindowonly);
-				//janelaminecraftchar=strjanelaminecraftchar;
-				rightmouseligado = atoi(strrightmouseligado);
-				inventoryonly = atoi(strinventoryonly);
-				togglesprint = atoi(strtogglesprint);
-				togglewtap = atoi(strtogglewtap);
-				wtapdelaymin = atoi(strwtapdelaymin);
-				blockhit = atoi(strblockhit);
-				randomizeblockhit = atoi(strrandomizeblockhit);
-				randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-				//strautopottoggle=atoi(strautopottoggle);
-				autopotkeybind = atoi(strautopotkeybind);
-
-				slotsword = atoi(strslotsword);
-				autopotdelay = atoi(strautopotdelay);
-				slotmin = atoi(strslotmin);
-				slotmax = atoi(strslotmax);
-
-				cleanstrings = atoi(strcleanstrings);
-				cleanfiles = atoi(strcleanfiles);
-				style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-				style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-				style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-				style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-				style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-				style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-				style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-				style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-				style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-				style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-				style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-				style.Colors[ImGuiCol_Button].z = atof(strcolor34);
-
-				GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_toggle"), TEXT("0"), strligado, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("cps_min"), TEXT("7"), strnigga1, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("cps_max"), TEXT("12"), strnigga2, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("randomize_toggle"), TEXT("1"), strrandomize, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_keybind"), TEXT("115"), strclickerkeybind, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("refresh_delay"), TEXT("500"), strrefreshdelay, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_toggle"), TEXT("0"), strfilterslots, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_selectedslot"), TEXT("1"), strtextslot, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_toggle"), TEXT("0"), strsoundstoggle, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_selectedsound"), TEXT("0"), strselectedsound, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("beep_toggle"), TEXT("0"), strbeepsound, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("clicker"), TEXT("newslider_toggle"), TEXT("1"), strslidernovo, 100, (LPCSTR)localconfig.c_str());
-
-				GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_toggle"), TEXT("0"), strjittertoggle, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_strenght"), TEXT("1"), strjitterclirk, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_delay"), TEXT("50"), strjitterdelay, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_inventory"), TEXT("0"), strinventoryjitter, 100, (LPCSTR)localconfig.c_str());
-
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_windowonly"), TEXT("0"), strwindowonly, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_specifiedwindow"), TEXT("Minecraft"), strjanelaminecraftchar, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_rightclicker_toggle"), TEXT("0"), strrightmouseligado, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_inventory_toggle"), TEXT("0"), strinventoryonly, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_togglesprinttoggle"), TEXT("0"), strtogglesprint, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_toggle"), TEXT("0"), strtogglewtap, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_delay"), TEXT("100"), strwtapdelaymin, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_toggle"), TEXT("0"), strblockhit, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomize"), TEXT("0"), strrandomizeblockhit, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomizechance"), TEXT("40"), strrandomizationpercentageblockhit, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_toggle"), TEXT("0"), strautopottoggle, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_keybind"), TEXT("0"), strautopotkeybind, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_swordslot"), TEXT("1"), strslotsword, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_delay"), TEXT("100"), strautopotdelay, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_minslots"), TEXT("2"), strslotmin, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_maxslots"), TEXT("9"), strslotmax, 100, (LPCSTR)localconfig.c_str());
-
-				GetPrivateProfileString(TEXT("other"), TEXT("other_cleanstrings"), TEXT("1"), strcleanstrings, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_cleanfiles"), TEXT("1"), strcleanfiles, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color11"), TEXT("1"), strcolor11, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color12"), TEXT("0.8"), strcolor12, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color13"), TEXT("0.8"), strcolor13, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color14"), TEXT("0.8"), strcolor14, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color21"), TEXT("1"), strcolor21, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color22"), TEXT("0.07"), strcolor22, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color23"), TEXT("0.07"), strcolor23, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color24"), TEXT("0.09"), strcolor24, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color31"), TEXT("1"), strcolor31, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color32"), TEXT("0.1"), strcolor32, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color33"), TEXT("0.09"), strcolor33, 100, (LPCSTR)localconfig.c_str());
-				GetPrivateProfileString(TEXT("other"), TEXT("other_color34"), TEXT("0.12"), strcolor34, 100, (LPCSTR)localconfig.c_str());
-				ligado = atoi(strligado);
-				nigga1 = atoi(strnigga1);
-				nigga2 = atoi(strnigga2);
-				randomize = atoi(strrandomize);
-				clickerkeybind = atoi(strclickerkeybind);
-				refreshdelay = atoi(strrefreshdelay);
-				filterslots = atoi(strfilterslots);
-				textslot = atoi(strtextslot);
-				soundstoggle = atoi(strsoundstoggle);
-				selectedsound = atoi(strselectedsound);
-				beeptoggle = atoi(strbeepsound);
-				slidernovo = atoi(strslidernovo);
-
-				jittertoggle = atoi(strjittertoggle);
-				jitterclirk = atoi(strjitterclirk);
-				jitterdelay = atoi(strjitterdelay);
-				inventoryjitter = atoi(strinventoryjitter);
-				windowonly = atoi(strwindowonly);
-				//janelaminecraftchar=strjanelaminecraftchar;
-				rightmouseligado = atoi(strrightmouseligado);
-				inventoryonly = atoi(strinventoryonly);
-				togglesprint = atoi(strtogglesprint);
-				togglewtap = atoi(strtogglewtap);
-				wtapdelaymin = atoi(strwtapdelaymin);
-				blockhit = atoi(strblockhit);
-				randomizeblockhit = atoi(strrandomizeblockhit);
-				randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-				//strautopottoggle=atoi(strautopottoggle);
-				autopotkeybind = atoi(strautopotkeybind);
-
-				slotsword = atoi(strslotsword);
-				autopotdelay = atoi(strautopotdelay);
-				slotmin = atoi(strslotmin);
-				slotmax = atoi(strslotmax);
-
-				cleanstrings = atoi(strcleanstrings);
-				cleanfiles = atoi(strcleanfiles);
-				style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-				style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-				style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-				style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-				style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-				style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-				style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-				style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-				style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-				style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-				style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-				style.Colors[ImGuiCol_Button].z = atof(strcolor34);
-
-
-
-
-			}
+				for (static bool first = true; first; first = false)
+				{
+					loadconfig();
+				}
 				mysqlusername = "CC^TAKERi]WW_\\Z";
 				mysqlpassword = "FA@XPT[KUVNCL]^KSH";
 				mysqldatabase = "CC^TAKERiTYW]\\O";
-				int controleuserpassload = 0;
+				
 				for (static bool first = true; first; first = false)
 				{
 					char* appdata = getenv("APPDATA");
@@ -2800,20 +2497,18 @@ ImGuiStyle& style = ImGui::GetStyle();
 					confighash = "\\" + confighashtemp;
 					std::string localconfig = appdata + confighash + ".ini";
 
-					
-					GetPrivateProfileString(TEXT("login"), TEXT("username"), TEXT(""), charusername, 64, (LPCSTR)localconfig.c_str());
-					GetPrivateProfileString(TEXT("login"), TEXT("password"), TEXT(""), charpassword, 64, (LPCSTR)localconfig.c_str());
-				
+
+					GetPrivateProfileString(TEXT("login"), TEXT("username"), TEXT(""), charusername, 64,
+					                        (LPCSTR)localconfig.c_str());
+					GetPrivateProfileString(TEXT("login"), TEXT("password"), TEXT(""), charpassword, 64,
+					                        (LPCSTR)localconfig.c_str());
 				}
-				
-			
-					
-					
-				
+
+
 				if (imguicontrole)
 				{
 					//MYSql Login and Query
-					
+
 					if (controlemysql1)
 					{
 						Sleep(1);
@@ -2821,17 +2516,19 @@ ImGuiStyle& style = ImGui::GetStyle();
 						controlemysql1 = false;
 						Sleep(1);
 						if (!mysql_real_connect(ayysql,
-							"134.255.254.158",
-							encryptDecrypt(mysqlusername).c_str(),
-							encryptDecrypt(mysqlpassword).c_str(),
-							encryptDecrypt(mysqldatabase).c_str(),
-							3306,
-							NULL,
-							NULL
-						)) {
+						                        "134.255.254.158",
+						                        encryptDecrypt(mysqlusername).c_str(),
+						                        encryptDecrypt(mysqlpassword).c_str(),
+						                        encryptDecrypt(mysqldatabase).c_str(),
+						                        3306,
+						                        nullptr,
+						                        NULL
+						))
+						{
 							conectado = false;
 						}
-						else {
+						else
+						{
 							conectado = true;
 						}
 					}
@@ -2839,9 +2536,8 @@ ImGuiStyle& style = ImGui::GetStyle();
 					{
 						ImGui::Text("ERROR! Not possible to connect to our servers.");
 					}
-					
 
-				
+
 					ImGui::Text("Login/Register");
 
 					Sleep(1);
@@ -2856,12 +2552,17 @@ ImGuiStyle& style = ImGui::GetStyle();
 
 						hashpassword = picosha2::hash256_hex_string(password);
 						username = charusername;
-						
+
 						charhashpassword = &hashpassword[0u];
 
-						query = std::string("INSERT IGNORE INTO loader (name, senha, hwid_atual) VALUES ('") + charusername + (std::string)"','" + charhashpassword + (std::string)"','" + hashhwid + (std::string)"');";
-						query2 = (std::string)"SELECT * FROM loader WHERE name='" + charusername + (std::string)("' AND senha='") + charhashpassword + (std::string)("' AND hwid='") + hashhwid + (std::string)("' AND ativado=true;");
-						query3 = (std::string)"UPDATE loader SET hwid_atual='" + hashhwid + "' WHERE name='" + charusername + "';";
+						query = std::string("INSERT IGNORE INTO loader (name, senha, hwid_atual) VALUES ('") +
+							charusername + (std::string)"','" + charhashpassword + (std::string)"','" + hashhwid + (std
+								::string)"');";
+						query2 = (std::string)"SELECT * FROM loader WHERE name='" + charusername + (std::string)(
+							"' AND senha='") + charhashpassword + (std::string)("' AND hwid='") + hashhwid + (std::
+							string)("' AND ativado=true;");
+						query3 = (std::string)"UPDATE loader SET hwid_atual='" + hashhwid + "' WHERE name='" +
+							charusername + "';";
 
 						strcpy_s(charquery, query.c_str());
 						strcpy_s(charquery2, query2.c_str());
@@ -2886,7 +2587,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 							finish_with_error(ayysql);
 						}
 
-						MYSQL_RES *result = mysql_store_result(ayysql);
+						MYSQL_RES* result = mysql_store_result(ayysql);
 
 						MYSQL_ROW row;
 
@@ -2911,38 +2612,40 @@ ImGuiStyle& style = ImGui::GetStyle();
 							std::string localconfig = appdata + confighash + ".ini";
 
 
-							
-							
-
-
-							WritePrivateProfileStringA(TEXT("login"), TEXT("username"), TEXT(charusername), (LPCSTR)localconfig.c_str());
-							WritePrivateProfileStringA(TEXT("login"), TEXT("password"), TEXT(charpassword), (LPCSTR)localconfig.c_str());
+							WritePrivateProfileStringA(TEXT("login"), TEXT("username"), TEXT(charusername),
+							                           (LPCSTR)localconfig.c_str());
+							WritePrivateProfileStringA(TEXT("login"), TEXT("password"), TEXT(charpassword),
+							                           (LPCSTR)localconfig.c_str());
 						}
 						sanidade = true;
 					}
 
 					if (ImGui::Button("Exit"))
 					{
-						imguicontrole = 0;
+						imguicontrole = false;
 					}
-					if (tentativaerro = 2 && sanidade)
+					if (tentativaerro = true && sanidade)
 					{
 						ImGui::Text("Invalid // Disabled Account");
 					}
 					for (static bool first = true; first; first = false)
 					{
-
 						enterpressionado = false;
 						password = charpassword + stringsal;
 
 						hashpassword = picosha2::hash256_hex_string(password);
 						username = charusername;
-					
+
 						charhashpassword = &hashpassword[0u];
 
-						query = std::string("INSERT IGNORE INTO loader (name, senha, hwid_atual) VALUES ('") + charusername + (std::string)"','" + charhashpassword + (std::string)"','" + hashhwid + (std::string)"');";
-						query2 = (std::string)"SELECT * FROM loader WHERE name='" + charusername + (std::string)("' AND senha='") + charhashpassword + (std::string)("' AND hwid='") + hashhwid + (std::string)("' AND ativado=true;");
-						query3 = (std::string)"UPDATE loader SET hwid_atual='" + hashhwid + "' WHERE name='" + charusername + "';";
+						query = std::string("INSERT IGNORE INTO loader (name, senha, hwid_atual) VALUES ('") +
+							charusername + (std::string)"','" + charhashpassword + (std::string)"','" + hashhwid + (std
+								::string)"');";
+						query2 = (std::string)"SELECT * FROM loader WHERE name='" + charusername + (std::string)(
+							"' AND senha='") + charhashpassword + (std::string)("' AND hwid='") + hashhwid + (std::
+							string)("' AND ativado=true;");
+						query3 = (std::string)"UPDATE loader SET hwid_atual='" + hashhwid + "' WHERE name='" +
+							charusername + "';";
 
 						strcpy_s(charquery, query.c_str());
 						strcpy_s(charquery2, query2.c_str());
@@ -2967,7 +2670,7 @@ ImGuiStyle& style = ImGui::GetStyle();
 							finish_with_error(ayysql);
 						}
 
-						MYSQL_RES *result = mysql_store_result(ayysql);
+						MYSQL_RES* result = mysql_store_result(ayysql);
 
 						MYSQL_ROW row;
 
@@ -2990,15 +2693,6 @@ ImGuiStyle& style = ImGui::GetStyle();
 							username = "";
 							confighash = "\\" + confighash;
 							std::string localconfig = appdata + confighash + ".ini";
-
-
-
-
-
-
-
-
-
 						}
 					}
 				}
@@ -3006,16 +2700,18 @@ ImGuiStyle& style = ImGui::GetStyle();
 		}
 		else
 		{
-
-		switch (errorcondition)
-		{
-		case 1:
-			MessageBox(NULL, "Process Hacker // Process Explorer // Process Monitor detected, please fully close these programs and try again", "", MB_ICONERROR || MB_OK);
-			break;
-		case 2:
-			MessageBox(NULL, "IDA detected, please fully close these programs and try again", "", MB_ICONERROR || MB_OK);
-			break;
-		}
+			switch (errorcondition)
+			{
+			case 1:
+				MessageBox(nullptr,
+				           "Process Hacker // Process Explorer // Process Monitor detected, please fully close these programs and try again",
+				           "", MB_ICONERROR || MB_OK);
+				break;
+			case 2:
+				MessageBox(nullptr, "IDA detected, please fully close these programs and try again", "",
+				           MB_ICONERROR || MB_OK);
+				break;
+			}
 			if (cleanstrings)
 			{
 				// :(
@@ -3044,18 +2740,16 @@ ImGuiStyle& style = ImGui::GetStyle();
 				//}
 
 				//CloseHandle(snapshot);
-
 			}
 			RegDelnode(HKEY_CURRENT_USER, TEXT("Software\\Microsoft\\DirectInput"));
 			RegDelnode(HKEY_LOCAL_MACHINE, TEXT("SYSTEM\\ControlSet001\\Services\\bam\\UserSettings"));
-			
+
 			if (destructconfig)
 			{
-				char * appdata = getenv("APPDATA");
+				char* appdata = getenv("APPDATA");
 				std::string localconfig = appdata + confighash + ".ini";
 				DeleteFileA(localconfig.c_str());
 				remove(localconfig.c_str());
-				
 			}
 			if (cleanfiles)
 			{
@@ -3114,8 +2808,6 @@ ImGuiStyle& style = ImGui::GetStyle();
 					
 				}
 				closedir(dir);*/
-				
-
 			}
 
 			if (selfdeletetoggle)
@@ -3127,8 +2819,6 @@ ImGuiStyle& style = ImGui::GetStyle();
 				PVOID mem;
 
 				// Zero all data structures
-
-				
 			}
 
 			controletotal = true;
@@ -3141,9 +2831,10 @@ void PreInitSample()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 }
+
 void InitSample()
 {
-	ImWindow::ImwWindowManager& oMgr = *ImWindow::ImwWindowManager::GetInstance();
+	ImwWindowManager& oMgr = *ImwWindowManager::GetInstance();
 
 	oMgr.SetMainTitle(""); // random title
 	ImGuiStyle& style = ImGui::GetStyle();
@@ -3209,11 +2900,12 @@ void InitSample()
 	style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(1.00f, 0.98f, 0.95f, 0.73f);
 #pragma endregion
 }
+
 BOOL IsRunAsAdministrator()
 {
 	BOOL fIsRunAsAdmin = FALSE;
 	DWORD dwError = ERROR_SUCCESS;
-	PSID pAdministratorsGroup = NULL;
+	PSID pAdministratorsGroup = nullptr;
 
 	SID_IDENTIFIER_AUTHORITY NtAuthority = SECURITY_NT_AUTHORITY;
 	if (!AllocateAndInitializeSid(
@@ -3228,10 +2920,9 @@ BOOL IsRunAsAdministrator()
 		goto Cleanup;
 	}
 
-	if (!CheckTokenMembership(NULL, pAdministratorsGroup, &fIsRunAsAdmin))
+	if (!CheckTokenMembership(nullptr, pAdministratorsGroup, &fIsRunAsAdmin))
 	{
 		dwError = GetLastError();
-		goto Cleanup;
 	}
 
 Cleanup:
@@ -3239,7 +2930,7 @@ Cleanup:
 	if (pAdministratorsGroup)
 	{
 		FreeSid(pAdministratorsGroup);
-		pAdministratorsGroup = NULL;
+		pAdministratorsGroup = nullptr;
 	}
 
 	if (ERROR_SUCCESS != dwError)
@@ -3249,6 +2940,7 @@ Cleanup:
 
 	return fIsRunAsAdmin;
 }
+
 void ElevateNow()
 {
 	BOOL bAlreadyRunningAsAdministrator = FALSE;
@@ -3263,15 +2955,13 @@ void ElevateNow()
 	if (!bAlreadyRunningAsAdministrator)
 	{
 		char szPath[MAX_PATH];
-		if (GetModuleFileName(NULL, szPath, ARRAYSIZE(szPath)))
+		if (GetModuleFileName(nullptr, szPath, ARRAYSIZE(szPath)))
 		{
-
-
-			SHELLEXECUTEINFO sei = { sizeof(sei) };
+			SHELLEXECUTEINFO sei = {sizeof(sei)};
 
 			sei.lpVerb = "runas";
 			sei.lpFile = szPath;
-			sei.hwnd = NULL;
+			sei.hwnd = nullptr;
 			sei.nShow = SW_NORMAL;
 
 			if (!ShellExecuteEx(&sei))
@@ -3279,33 +2969,35 @@ void ElevateNow()
 				DWORD dwError = GetLastError();
 				if (dwError == ERROR_CANCELLED)
 					//Annoys you to Elevate it LOL
-					CreateThread(0, 0, (LPTHREAD_START_ROUTINE)ElevateNow, 0, 0, 0);
+					CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)ElevateNow, nullptr, 0, nullptr);
 			}
 		}
-
 	}
 	else
 	{
 		///Code
 	}
 }
+
 //main
 std::string truncate(std::string str, size_t width, bool show_ellipsis = true)
 {
 	if (str.length() > width)
+	{
 		if (show_ellipsis)
 			return str.substr(0, width) + "...";
-		else
-			return str.substr(0, width);
+		return str.substr(0, width);
+	}
 	return str;
 }
-int main( char* argv[])
+
+int main(char* argv[])
 {
 	//Drive Serial
 	ImGuiStyle& style = ImGui::GetStyle();
 
 	char* appdata = getenv("APPDATA");
-	
+
 	username = "";
 	confighash = "\\" + confighash;
 	std::string localconfig = appdata + confighash + ".ini";
@@ -3321,185 +3013,30 @@ int main( char* argv[])
 	string message = "Loaded config at " + localconfig;
 
 
-
-	char  strligado[100];
-	char  strnigga1[100];
-	char  strnigga2[100];
-	char  strrandomize[100];
-	char  strclickerkeybind[100];
-	char  strrefreshdelay[100];
-	char  strfilterslots[100];
-	char  strtextslot[100];
-	char  strsoundstoggle[100];
-	char  strselectedsound[100];
-	char  strbeepsound[100];
-	char  strslidernovo[100];
-
-	char  strjittertoggle[100];
-	char  strjitterclirk[100];
-	char  strjitterdelay[100];
-	char  strinventoryjitter[100];
-	char  strwindowonly[100];
-	char  strjanelaminecraftchar[100];
-	char  strrightmouseligado[100];
-	char  strinventoryonly[100];
-	char  strtogglesprint[100];
-	char  strtogglewtap[100];
-	char  strwtapdelaymin[100];
-	char  strblockhit[100];
-	char  strrandomizeblockhit[100];
-	char  strrandomizationpercentageblockhit[100];
-	char  strautopottoggle[100];
-	char  strautopotkeybind[100];
-
-	char  strslotsword[100];
-	char  strautopotdelay[100];
-	char  strslotmin[100];
-	char  strslotmax[100];
-
-	char  strcleanstrings[100];
-	char  strcleanfiles[100];
-	char  strcolor11[100];
-	char  strcolor12[100];
-	char  strcolor13[100];
-	char  strcolor14[100];
-	char  strcolor21[100];
-	char  strcolor22[100];
-	char  strcolor23[100];
-	char  strcolor24[100];
-
-	char  strcolor31[100];
-	char  strcolor32[100];
-	char  strcolor33[100];
-	char  strcolor34[100];
-
-	
-
-	GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_toggle"), TEXT("0"), strligado, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("cps_min"), TEXT("7"), strnigga1, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("cps_max"), TEXT("12"), strnigga2, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("randomize_toggle"), TEXT("1"), strrandomize, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("clicker_keybind"), TEXT("115"), strclickerkeybind, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("refresh_delay"), TEXT("500"), strrefreshdelay, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_toggle"), TEXT("0"), strfilterslots, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("slotfilter_selectedslot"), TEXT("1"), strtextslot, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_toggle"), TEXT("0"), strsoundstoggle, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("clicksounds_selectedsound"), TEXT("0"), strselectedsound, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("beep_toggle"), TEXT("0"), strbeepsound, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("clicker"), TEXT("newslider_toggle"), TEXT("1"), strslidernovo, 100, (LPCSTR)localconfig.c_str());
-
-	GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_toggle"), TEXT("0"), strjittertoggle, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_strenght"), TEXT("1"), strjitterclirk, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_delay"), TEXT("50"), strjitterdelay, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("jitter"), TEXT("jitter_inventory"), TEXT("0"), strinventoryjitter, 100, (LPCSTR)localconfig.c_str());
-
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_windowonly"), TEXT("0"), strwindowonly, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_specifiedwindow"), TEXT("Minecraft"), strjanelaminecraftchar, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_rightclicker_toggle"), TEXT("0"), strrightmouseligado, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_inventory_toggle"), TEXT("0"), strinventoryonly, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_togglesprinttoggle"), TEXT("0"), strtogglesprint, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_toggle"), TEXT("0"), strtogglewtap, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_wtap_delay"), TEXT("100"), strwtapdelaymin, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_toggle"), TEXT("0"), strblockhit, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomize"), TEXT("0"), strrandomizeblockhit, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_blockhit_randomizechance"), TEXT("40"), strrandomizationpercentageblockhit, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_toggle"), TEXT("0"), strautopottoggle, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_keybind"), TEXT("0"), strautopotkeybind, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_swordslot"), TEXT("1"), strslotsword, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_delay"), TEXT("100"), strautopotdelay, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_minslots"), TEXT("2"), strslotmin, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("misc"), TEXT("misc_autopot_maxslots"), TEXT("9"), strslotmax, 100, (LPCSTR)localconfig.c_str());
-
-	GetPrivateProfileString(TEXT("other"), TEXT("other_cleanstrings"), TEXT("1"), strcleanstrings, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_cleanfiles"), TEXT("1"), strcleanfiles, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color11"), TEXT("1"), strcolor11, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color12"), TEXT("0.8"), strcolor12, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color13"), TEXT("0.8"), strcolor13, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color14"), TEXT("0.8"), strcolor14, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color21"), TEXT("1"), strcolor21, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color22"), TEXT("0.07"), strcolor22, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color23"), TEXT("0.07"), strcolor23, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color24"), TEXT("0.09"), strcolor24, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color31"), TEXT("1"), strcolor31, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color32"), TEXT("0.1"), strcolor32, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color33"), TEXT("0.09"), strcolor33, 100, (LPCSTR)localconfig.c_str());
-	GetPrivateProfileString(TEXT("other"), TEXT("other_color34"), TEXT("0.12"), strcolor34, 100, (LPCSTR)localconfig.c_str());
-	ligado = atoi(strligado);
-	nigga1 = atoi(strnigga1);
-	nigga2 = atoi(strnigga2);
-	randomize = atoi(strrandomize);
-	clickerkeybind = atoi(strclickerkeybind);
-	refreshdelay = atoi(strrefreshdelay);
-	filterslots = atoi(strfilterslots);
-	textslot = atoi(strtextslot);
-	soundstoggle = atoi(strsoundstoggle);
-	selectedsound = atoi(strselectedsound);
-	beeptoggle = atoi(strbeepsound);
-	slidernovo = atoi(strslidernovo);
-
-	jittertoggle = atoi(strjittertoggle);
-	jitterclirk = atoi(strjitterclirk);
-	jitterdelay = atoi(strjitterdelay);
-	inventoryjitter = atoi(strinventoryjitter);
-	windowonly = atoi(strwindowonly);
-	//janelaminecraftchar=strjanelaminecraftchar;
-	rightmouseligado = atoi(strrightmouseligado);
-	inventoryonly = atoi(strinventoryonly);
-	togglesprint = atoi(strtogglesprint);
-	togglewtap = atoi(strtogglewtap);
-	wtapdelaymin = atoi(strwtapdelaymin);
-	blockhit = atoi(strblockhit);
-	randomizeblockhit = atoi(strrandomizeblockhit);
-	randomizationpercentageblockhit = atoi(strrandomizationpercentageblockhit);
-	//strautopottoggle=atoi(strautopottoggle);
-	autopotkeybind = atoi(strautopotkeybind);
-
-	slotsword = atoi(strslotsword);
-	autopotdelay = atoi(strautopotdelay);
-	slotmin = atoi(strslotmin);
-	slotmax = atoi(strslotmax);
-
-	cleanstrings = atoi(strcleanstrings);
-	cleanfiles = atoi(strcleanfiles);
-	style.Colors[ImGuiCol_Text].w = atof(strcolor11);
-	style.Colors[ImGuiCol_Text].x = atof(strcolor12);
-	style.Colors[ImGuiCol_Text].y = atof(strcolor13);
-	style.Colors[ImGuiCol_Text].z = atof(strcolor14);
-	style.Colors[ImGuiCol_ChildWindowBg].w = atof(strcolor21);
-	style.Colors[ImGuiCol_ChildWindowBg].x = atof(strcolor22);
-	style.Colors[ImGuiCol_ChildWindowBg].y = atof(strcolor23);
-	style.Colors[ImGuiCol_ChildWindowBg].z = atof(strcolor24);
-	style.Colors[ImGuiCol_Button].w = atof(strcolor31);
-	style.Colors[ImGuiCol_Button].x = atof(strcolor32);
-	style.Colors[ImGuiCol_Button].y = atof(strcolor33);
-	style.Colors[ImGuiCol_Button].z = atof(strcolor34);
+	loadconfig();
 	//
 
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&CheckWindow, NULL, 0, 0);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&CheckWindow, nullptr, 0, nullptr);
 
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&HULK, NULL, 0, 0);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&HULK, nullptr, 0, nullptr);
 
 
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&CPSThread, NULL, 0, 0);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&CPSThread, nullptr, 0, nullptr);
 
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&SoundThread, NULL, 0, 0);
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&ClickThread, NULL, 0, 0);
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&JitterThread, NULL, 0, 0);
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&TapThread, NULL, 0, 0);
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&AutoPotThread, NULL, 0, 0);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&SoundThread, nullptr, 0, nullptr);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&ClickThread, nullptr, 0, nullptr);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&JitterThread, nullptr, 0, nullptr);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&TapThread, nullptr, 0, nullptr);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&AutoPotThread, nullptr, 0, nullptr);
 
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)&SprintThread, NULL, 0, 0);
+	CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)&SprintThread, nullptr, 0, nullptr);
 
-	
 
-	
-	
 	std::string hwidfinal;
 	std::string queryhwid;
 
 	//nigga2 = atoi(nigga.c_str());
 
-	
 
 	//hd serial
 	queryAndPrintResult(L"SELECT SerialNumber FROM Win32_PhysicalMedia", L"SerialNumber");
@@ -3513,13 +3050,13 @@ int main( char* argv[])
 
 	hashhwid = picosha2::hash256_hex_string(hwidserials);
 
-	char *charhashhwid = new char[hashhwid.length() + 1];
+	char* charhashhwid = new char[hashhwid.length() + 1];
 	strcpy(charhashhwid, hashhwid.c_str());
 
 	confighash = truncate(hashhwid, 6, false);
 	confighashtemp = confighash;
 	controle = 1;
-	
+
 
 	//main code
 

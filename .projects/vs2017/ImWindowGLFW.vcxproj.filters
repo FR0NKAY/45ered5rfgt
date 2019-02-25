@@ -12,12 +12,12 @@
     <ClInclude Include="..\..\ImWindowGLFW\ImwWindowManagerGLFW.h">
       <Filter>ImWindowGLFW</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\nigger.h" />
     <ClInclude Include="..\..\picosha2.h" />
     <ClInclude Include="..\..\encrypt.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="nibnig.h" />
+    <ClInclude Include="..\..\include\nigger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ImWindowGLFW\ImwPlatformWindowGLFW.cpp">

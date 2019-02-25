@@ -250,7 +250,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\encrypt.h" />
-    <ClInclude Include="..\..\nigger.h" />
+    <ClInclude Include="..\..\include\nigger.h" />
     <ClInclude Include="..\..\picosha2.h" />
     <ClInclude Include="..\..\ImWindowGLFW\ImwPlatformWindowGLFW.h" />
     <ClInclude Include="..\..\ImWindowGLFW\ImwWindowManagerGLFW.h" />
