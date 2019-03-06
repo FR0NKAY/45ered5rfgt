@@ -50,6 +50,34 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImGuiListClipper::ItemsHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImGuiListClipper::{ctor}</FUNCTION>
+    <DECORATED>??0ImGuiListClipper@@QAE@HM@Z</DECORATED>
+    <FUNCLINE>1102</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
+      <FILENAME>imgui.h</FILENAME>
+      <LINE>1102</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImGuiListClipper::DisplayEnd' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImGuiListClipper::{ctor}</FUNCTION>
+    <DECORATED>??0ImGuiListClipper@@QAE@HM@Z</DECORATED>
+    <FUNCLINE>1102</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
+      <FILENAME>imgui.h</FILENAME>
+      <LINE>1102</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ImGuiListClipper::StartPosY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ImGuiListClipper::{ctor}</FUNCTION>
     <DECORATED>??0ImGuiListClipper@@QAE@HM@Z</DECORATED>
@@ -78,34 +106,6 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ImGuiListClipper::ItemsCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ImGuiListClipper::{ctor}</FUNCTION>
-    <DECORATED>??0ImGuiListClipper@@QAE@HM@Z</DECORATED>
-    <FUNCLINE>1102</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
-      <FILENAME>imgui.h</FILENAME>
-      <LINE>1102</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ImGuiListClipper::DisplayEnd' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ImGuiListClipper::{ctor}</FUNCTION>
-    <DECORATED>??0ImGuiListClipper@@QAE@HM@Z</DECORATED>
-    <FUNCLINE>1102</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
-      <FILENAME>imgui.h</FILENAME>
-      <LINE>1102</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ImGuiListClipper::DisplayStart' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ImGuiListClipper::{ctor}</FUNCTION>
     <DECORATED>??0ImGuiListClipper@@QAE@HM@Z</DECORATED>
@@ -120,38 +120,10 @@
       <COLUMN>4</COLUMN>
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ImGuiListClipper::ItemsHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <DESCRIPTION>Variable 'ImGuiListClipper::ItemsCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ImGuiListClipper::{ctor}</FUNCTION>
     <DECORATED>??0ImGuiListClipper@@QAE@HM@Z</DECORATED>
     <FUNCLINE>1102</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
-      <FILENAME>imgui.h</FILENAME>
-      <LINE>1186</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ImDrawList::_ChannelsCurrent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ImDrawList::{ctor}</FUNCTION>
-    <DECORATED>??0ImDrawList@@QAE@XZ</DECORATED>
-    <FUNCLINE>1186</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
-      <FILENAME>imgui.h</FILENAME>
-      <LINE>1186</LINE>
-      <COLUMN>4</COLUMN>
-    </SFA>
-    <DEFECTCODE>26495</DEFECTCODE>
-    <DESCRIPTION>Variable 'ImDrawList::_ChannelsCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
-    <FUNCTION>ImDrawList::{ctor}</FUNCTION>
-    <DECORATED>??0ImDrawList@@QAE@XZ</DECORATED>
-    <FUNCLINE>1186</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
@@ -191,6 +163,34 @@
     </SFA>
     <DEFECTCODE>26495</DEFECTCODE>
     <DESCRIPTION>Variable 'ImDrawList::_IdxWritePtr' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImDrawList::{ctor}</FUNCTION>
+    <DECORATED>??0ImDrawList@@QAE@XZ</DECORATED>
+    <FUNCLINE>1186</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
+      <FILENAME>imgui.h</FILENAME>
+      <LINE>1186</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImDrawList::_ChannelsCurrent' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImDrawList::{ctor}</FUNCTION>
+    <DECORATED>??0ImDrawList@@QAE@XZ</DECORATED>
+    <FUNCLINE>1186</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\daniel\desktop\imwindow\externals\imgui</FILEPATH>
+      <FILENAME>imgui.h</FILENAME>
+      <LINE>1186</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImDrawList::_ChannelsCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
     <FUNCTION>ImDrawList::{ctor}</FUNCTION>
     <DECORATED>??0ImDrawList@@QAE@XZ</DECORATED>
     <FUNCLINE>1186</FUNCLINE>

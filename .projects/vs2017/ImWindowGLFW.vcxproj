@@ -23,6 +23,7 @@
     <RootNamespace>ImWindowGLFW</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
+    <ProjectName>MonkeyClicador</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -90,7 +91,7 @@
     <TargetName>ImWindowGLFW</TargetName>
     <TargetExt>.exe</TargetExt>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\Daniel\Desktop\cpr-master\include;C:\Users\Daniel\Desktop\curlpp-0.8.1\include;C:\Users\Daniel\Desktop\ImWindow\curl\include;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\include;C:\Users\Daniel\Desktop\ImWindow\libs;C:\Users\Daniel\Desktop\ImWindow\include;C:\Users\Daniel\Desktop\ImWindow;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\Daniel\Desktop\ImWindow\Externals\curlpp-0.8.1\include;C:\Users\Daniel\Desktop\cpr-master\include;C:\Users\Daniel\Desktop\curlpp-0.8.1\include;C:\Users\Daniel\Desktop\ImWindow\curl\include;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\lib;C:\Program Files (x86)\MySQL\MySQL Connector C 6.1\include;C:\Users\Daniel\Desktop\ImWindow\libs;C:\Users\Daniel\Desktop\ImWindow\include;C:\Users\Daniel\Desktop\ImWindow;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Daniel\Desktop\ImWindow;C:\Users\Daniel\Desktop\ImWindow\libs;C:\Program Files %28x86%29\MySQL\MySQL Connector C 6.1\lib;$(LibraryPath)</LibraryPath>
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
