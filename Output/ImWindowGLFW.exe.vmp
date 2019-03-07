@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Document Version="2">
-    <Protection InputFileName="ImWindowGLFW.exe" Options="857032" VMCodeSectionName=".mnk" OutputFileName="unins000.exe">
+    <Protection InputFileName="ImWindowGLFW.exe" Options="991176" VMCodeSectionName=".mnk" OutputFileName="unins000.exe">
         <Messages>
             <Message Id="0">0</Message>
             <Message Id="1">1</Message>

@@ -1,9 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (c:\Users\Daniel\Desktop\ImWindow\.projects\vs2017\..\..\.build\vs2017\x32\Release\ImWindowGLFW\) contains files shared from another project (ImWindowGLFW.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  main.cpp
   Generating code
-  2 of 879 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  0 of 884 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ImWindowGLFW.vcxproj -> C:\Users\Daniel\Desktop\ImWindow\.projects\vs2017\..\..\Output\ImWindowGLFW.exe
 c:\users\daniel\desktop\imwindow\externals\imgui\imgui.h(971): warning C26495: Variable 'ImGuiStorage::Pair::<anonymous-tag>::val_i' is uninitialized. Always initialize a member variable (type.6).
@@ -21,48 +20,48 @@ c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(45): warning C26451: Arit
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(782): warning C26444: Avoid unnamed objects with custom construction and destruction (es.84).
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(794): warning C26444: Avoid unnamed objects with custom construction and destruction (es.84).
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(807): warning C26444: Avoid unnamed objects with custom construction and destruction (es.84).
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1517): warning C6054: String 'strcleanstrings' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1517): warning C6001: Using uninitialized memory 'strcleanstrings'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1497): warning C6054: String 'strjitterdelay' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1497): warning C6001: Using uninitialized memory 'strjitterdelay'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1501): warning C6054: String 'strrightmouseligado' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1501): warning C6001: Using uninitialized memory 'strrightmouseligado'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1519): warning C6054: String 'strcolor11' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1519): warning C6001: Using uninitialized memory 'strcolor11'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1499): warning C6054: String 'strwindowonly' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1499): warning C6001: Using uninitialized memory 'strwindowonly'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1523): warning C6054: String 'strcolor21' might not be zero-terminated.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1523): warning C6001: Using uninitialized memory 'strcolor21'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1507): warning C6054: String 'strrandomizeblockhit' might not be zero-terminated.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1507): warning C6001: Using uninitialized memory 'strrandomizeblockhit'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1514): warning C6054: String 'strslotmin' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1514): warning C6001: Using uninitialized memory 'strslotmin'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1518): warning C6054: String 'strcleanfiles' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1518): warning C6001: Using uninitialized memory 'strcleanfiles'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1498): warning C6054: String 'strinventoryjitter' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1498): warning C6001: Using uninitialized memory 'strinventoryjitter'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1515): warning C6054: String 'strslotmax' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1515): warning C6001: Using uninitialized memory 'strslotmax'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1513): warning C6054: String 'strautopotdelay' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1513): warning C6001: Using uninitialized memory 'strautopotdelay'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1519): warning C6054: String 'strcolor11' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1519): warning C6001: Using uninitialized memory 'strcolor11'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1512): warning C6054: String 'strslotsword' might not be zero-terminated.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1512): warning C6001: Using uninitialized memory 'strslotsword'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1510): warning C6054: String 'strautopotkeybind' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1510): warning C6001: Using uninitialized memory 'strautopotkeybind'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1506): warning C6054: String 'strblockhit' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1506): warning C6001: Using uninitialized memory 'strblockhit'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1521): warning C6054: String 'strcolor13' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1521): warning C6001: Using uninitialized memory 'strcolor13'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1514): warning C6054: String 'strslotmin' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1514): warning C6001: Using uninitialized memory 'strslotmin'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1508): warning C6054: String 'strrandomizationpercentageblockhit' might not be zero-terminated.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1508): warning C6001: Using uninitialized memory 'strrandomizationpercentageblockhit'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1522): warning C6054: String 'strcolor14' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1522): warning C6001: Using uninitialized memory 'strcolor14'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1520): warning C6054: String 'strcolor12' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1520): warning C6001: Using uninitialized memory 'strcolor12'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1496): warning C6054: String 'strjitterclirk' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1496): warning C6001: Using uninitialized memory 'strjitterclirk'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1517): warning C6054: String 'strcleanstrings' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1517): warning C6001: Using uninitialized memory 'strcleanstrings'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1515): warning C6054: String 'strslotmax' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1515): warning C6001: Using uninitialized memory 'strslotmax'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1506): warning C6054: String 'strblockhit' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1506): warning C6001: Using uninitialized memory 'strblockhit'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1510): warning C6054: String 'strautopotkeybind' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1510): warning C6001: Using uninitialized memory 'strautopotkeybind'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1513): warning C6054: String 'strautopotdelay' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1513): warning C6001: Using uninitialized memory 'strautopotdelay'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1505): warning C6054: String 'strwtapdelaymin' might not be zero-terminated.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1505): warning C6001: Using uninitialized memory 'strwtapdelaymin'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1501): warning C6054: String 'strrightmouseligado' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1501): warning C6001: Using uninitialized memory 'strrightmouseligado'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1499): warning C6054: String 'strwindowonly' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1499): warning C6001: Using uninitialized memory 'strwindowonly'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1497): warning C6054: String 'strjitterdelay' might not be zero-terminated.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1497): warning C6001: Using uninitialized memory 'strjitterdelay'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1498): warning C6054: String 'strinventoryjitter' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1498): warning C6001: Using uninitialized memory 'strinventoryjitter'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1520): warning C6054: String 'strcolor12' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1520): warning C6001: Using uninitialized memory 'strcolor12'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1522): warning C6054: String 'strcolor14' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1522): warning C6001: Using uninitialized memory 'strcolor14'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1521): warning C6054: String 'strcolor13' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1521): warning C6001: Using uninitialized memory 'strcolor13'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1518): warning C6054: String 'strcleanfiles' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1518): warning C6001: Using uninitialized memory 'strcleanfiles'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1496): warning C6054: String 'strjitterclirk' might not be zero-terminated.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1496): warning C6001: Using uninitialized memory 'strjitterclirk'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1527): warning C6054: String 'strcolor31' might not be zero-terminated.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1527): warning C6001: Using uninitialized memory 'strcolor31'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1526): warning C6054: String 'strcolor24' might not be zero-terminated.
@@ -109,5 +108,5 @@ c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1489): warning C6054: Str
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1489): warning C6001: Using uninitialized memory 'strtextslot'.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1504): warning C6054: String 'strtogglewtap' might not be zero-terminated.
 c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(1504): warning C6001: Using uninitialized memory 'strtogglewtap'.
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(2111): warning C26495: Variable 'MyImwWindow2::conectado' is uninitialized. Always initialize a member variable (type.6).
-c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(3177): warning C6200: Index '8' is out of valid index range '0' to '7' for non-stack buffer 'bool * newslots'.
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(2126): warning C26495: Variable 'MyImwWindow2::conectado' is uninitialized. Always initialize a member variable (type.6).
+c:\users\daniel\desktop\imwindow\imwindowglfw\main.cpp(3194): warning C6200: Index '8' is out of valid index range '0' to '7' for non-stack buffer 'bool * newslots'.

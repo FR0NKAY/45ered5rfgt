@@ -5,6 +5,8 @@ focused on leaving no traces on your Windows System
 
 main code at /ImWindowGLFW/main.cpp
 
-changelog at https://monkeyclicker.xyz/changelog/
+user manager tool at gerenciador_de_contas.py
+
+changelog at https://monkeyclicker.xyz/changelog/index
 
 
