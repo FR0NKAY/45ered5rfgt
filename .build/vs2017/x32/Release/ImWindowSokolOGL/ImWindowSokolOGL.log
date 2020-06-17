@@ -1,8 +1,0 @@
-﻿  ImwPlatformWindowEasyWindow.cpp
-  ImwWindowManagerEasyWindow.cpp
-  ImwPlatformWindowSokol.cpp
-  ImwWindowManagerSokol.cpp
-  main.cpp
-  EasyWindow.cpp
-  EasyWindowWin32.cpp
-c:\users\daniel\desktop\imwindow\sample.h(16): fatal error C1083: Cannot open include file: 'Header.h': No such file or directory (compiling source file ..\..\ImWindowSokol\main.cpp)

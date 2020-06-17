@@ -1,49 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ImWindowGLFW">
-      <UniqueIdentifier>{E3AEAADE-CF11-3A83-7897-723964D90506}</UniqueIdentifier>
+    <ClInclude Include="..\..\include\nigger.h" />
+    <ClInclude Include="..\..\imconfig.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui_internal.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\imgui_impl_glfw.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\imgui_impl_opengl2.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\json.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\g303.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+    <Media Include="..\..\g502.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+    <Media Include="..\..\g3032.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+    <Media Include="..\..\GPro.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+    <Media Include="..\..\hp.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+    <Media Include="..\..\microsoft.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+    <Media Include="..\..\oldmouse.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+    <Media Include="..\..\oof.wav">
+      <Filter>Sounds</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ImGUI">
+      <UniqueIdentifier>{cb72c52f-16b0-4692-a972-feae00284dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sounds">
+      <UniqueIdentifier>{2cb048d0-c2fa-4c90-b55e-ebd387cf6480}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ImWindowGLFW\ImwPlatformWindowGLFW.h">
-      <Filter>ImWindowGLFW</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ImWindowGLFW\ImwWindowManagerGLFW.h">
-      <Filter>ImWindowGLFW</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\picosha2.h" />
-    <ClInclude Include="..\..\encrypt.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="resource1.h" />
-    <ClInclude Include="nibnig.h" />
-    <ClInclude Include="..\..\include\nigger.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\ImWindowGLFW\ImwPlatformWindowGLFW.cpp">
-      <Filter>ImWindowGLFW</Filter>
+    <ClCompile Include="..\..\imgui.cpp">
+      <Filter>ImGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ImWindowGLFW\ImwWindowManagerGLFW.cpp">
-      <Filter>ImWindowGLFW</Filter>
+    <ClCompile Include="..\..\imgui_demo.cpp">
+      <Filter>ImGUI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ImWindowGLFW\main.cpp">
-      <Filter>ImWindowGLFW</Filter>
+    <ClCompile Include="..\..\imgui_draw.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_widgets.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\examples\imgui_impl_glfw.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\imgui_impl_opengl2.cpp">
+      <Filter>ImGUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ImWindowGLFW.rc" />
+    <Natvis Include="..\..\misc\natvis\imgui.natvis">
+      <Filter>ImGUI</Filter>
+    </Natvis>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="..\..\g303.wav" />
-    <Media Include="..\..\g502.wav" />
-    <Media Include="..\..\g3032.wav" />
-    <Media Include="..\..\GPro.wav" />
-    <Media Include="..\..\hp.wav" />
-    <Media Include="..\..\microsoft.wav" />
-    <Media Include="..\..\oldmouse.wav" />
-    <Media Include="..\..\oof.wav" />
+    <ResourceCompile Include="ImWindowGLFW.rc">
+      <Filter>Sounds</Filter>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="wave8.bin" />
+    <None Include="wave8.bin">
+      <Filter>Sounds</Filter>
+    </None>
   </ItemGroup>
 </Project>

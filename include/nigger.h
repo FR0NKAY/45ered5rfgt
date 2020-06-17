@@ -6,28 +6,20 @@
 #define ADVLOG 1
 std::random_device rd;
 std::mt19937 generator(rd());
-#include <iostream>
 #include <atlstr.h>
 #include <string>
 #include <windows.h>
-#include <mysql.h>
+#include <comdef.h>
 #include <random>
-#include <tlhelp32.h>
-
-#include <ctime>
-#include <cstdio>
-#include <direct.h>
-#include <sys/stat.h>
-#pragma comment(lib, "iphlpapi.lib")
 #pragma comment(lib, "Rpcrt4.lib")
 #pragma comment(lib, "libcurl.lib")
 #include <shlwapi.h>
 #include <conio.h>
+#include <xorstr.hpp>
 #include <stdio.h>
-#include <fstream>
+//#include <fstream>
 #define WIN32_LEAN_AND_MEAN
 #include <intrin.h>
-#include <iphlpapi.h>
 HW_PROFILE_INFO hwProfileInfo;
 enum class WmiQueryError {
 	None,
@@ -48,6 +40,68 @@ int distribucaoint(int min, int max)
 
 	std::uniform_int_distribution<int> distanciaclick(min, max); //1 to 10, inclusive
 	return distanciaclick(ayyrando2);
+}
+
+std::string get_key_name_by_id(int id)
+{
+	static std::unordered_map< int, std::string > key_names =
+	{
+		{ 0, xorstr("None") },
+		{ VK_LBUTTON, xorstr("Mouse 1") },
+		{ VK_RBUTTON, xorstr("Mouse 2") },
+		{ VK_MBUTTON, xorstr("Mouse 3") },
+		{ VK_XBUTTON1, xorstr("Mouse 4") },
+		{ VK_XBUTTON2, xorstr("Mouse 5") },
+		{ VK_BACK, xorstr("Back") },
+		{ VK_TAB, xorstr("Tab") },
+		{ VK_CLEAR, xorstr("Clear") },
+		{ VK_RETURN, xorstr("Enter") },
+		{ VK_SHIFT, xorstr("Shift") },
+		{ VK_CONTROL, xorstr("Ctrl") },
+		{ VK_MENU, xorstr("Alt") },
+		{ VK_PAUSE, xorstr("Pause") },
+		{ VK_CAPITAL, xorstr("Caps Lock") },
+		{ VK_ESCAPE, xorstr("Escape") },
+		{ VK_SPACE, xorstr("Space") },
+		{ VK_PRIOR, xorstr("Page Up") },
+		{ VK_NEXT, xorstr("Page Down") },
+		{ VK_END, xorstr("End") },
+		{ VK_HOME, xorstr("Home") },
+		{ VK_LEFT, xorstr("Left Key") },
+		{ VK_UP, xorstr("Up Key") },
+		{ VK_RIGHT, xorstr("Right Key") },
+		{ VK_DOWN, xorstr("Down Key") },
+		{ VK_SELECT, xorstr("Select") },
+		{ VK_PRINT, xorstr("Print Screen") },
+		{ VK_INSERT, xorstr("Insert") },
+		{ VK_DELETE, xorstr("Delete") },
+		{ VK_HELP, xorstr("Help") },
+		{ VK_SLEEP, xorstr("Sleep") },
+		{ VK_MULTIPLY, xorstr("*") },
+		{ VK_ADD, xorstr("+") },
+		{ VK_SUBTRACT, xorstr("-") },
+		{ VK_DECIMAL, xorstr(".") },
+		{ VK_DIVIDE, xorstr("/") },
+		{ VK_NUMLOCK, xorstr("Num Lock") },
+		{ VK_SCROLL, xorstr("Scroll") },
+		{ VK_LSHIFT, xorstr("Left Shift") },
+		{ VK_RSHIFT, xorstr("Right Shift") },
+		{ VK_LCONTROL, xorstr("Left Ctrl") },
+		{ VK_RCONTROL, xorstr("Right Ctrl") },
+		{ VK_LMENU, xorstr("Left Alt") },
+		{ VK_RMENU, xorstr("Right Alt") },
+	};
+
+	if (id >= 0x30 && id <= 0x5A)
+		return std::string(1, (char)id);
+
+	if (id >= 0x60 && id <= 0x69)
+		return xorstr("Num ") + std::to_string(id - 0x60);
+
+	if (id >= 0x70 && id <= 0x87)
+		return xorstr("F") + std::to_string((id - 0x70) + 1);
+
+	return key_names[id];
 }
 
 struct WmiQueryResult
@@ -129,7 +183,7 @@ WmiQueryResult getWmiQueryResult(std::wstring wmiQuery, std::wstring propNameOfR
 				// the current user and obtain pointer pSvc
 				// to make IWbemServices calls.
 				hres = pLoc->ConnectServer(
-					_bstr_t(L"ROOT\\CIMV2"), // Object path of WMI namespace
+					_bstr_t(xorstr(L"ROOT\\CIMV2")), // Object path of WMI namespace
 					NULL,                    // User name. NULL = current user
 					NULL,                    // User password. NULL = current
 					0,                       // Locale. NULL indicates current
@@ -254,7 +308,7 @@ WmiQueryResult getWmiQueryResult(std::wstring wmiQuery, std::wstring propNameOfR
 
 	return retVal;
 }
-string ws2s(const std::wstring& wstr)
+std::string ws2s(const std::wstring& wstr)
 {
 	using convert_typeX = std::codecvt_utf8<wchar_t>;
 	std::wstring_convert<convert_typeX, wchar_t> converterX;
@@ -279,27 +333,6 @@ int RandomInt(int min, int max) // ez random
 	return ((generator() % (int)(((max)+1) - (min))) + (min));
 }
 
-bool isRunning(const char* name)
-{
-	HANDLE SnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-
-	if (SnapShot == INVALID_HANDLE_VALUE)
-		return false;
-
-	PROCESSENTRY32 procEntry;
-	procEntry.dwSize = sizeof(PROCESSENTRY32);
-
-	if (!Process32First(SnapShot, &procEntry))
-		return false;
-
-	do
-	{
-		if (strcmp(procEntry.szExeFile, name) == 0)
-			return true;
-	} while (Process32Next(SnapShot, &procEntry));
-
-	return false;
-}
 
 
 void MouseMove(int x, int y)
@@ -331,15 +364,10 @@ bool randombool() {
 	else return false;
 }
 
-void finish_with_error(MYSQL *con)
-{
-	mysql_close(con);
-	ImGui::Text("ERRO!");
-}
 
 using namespace std;
 
-void removeCharsFromString(string &str, char* charsToRemove) {
+void removeCharsFromString(std::string &str, char* charsToRemove) {
 	for (unsigned int i = 0; i < strlen(charsToRemove); ++i) {
 		str.erase(remove(str.begin(), str.end(), charsToRemove[i]), str.end());
 	}
