@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="nibnig.h" />
+    <ClInclude Include="..\..\include\nigger.h" />
+    <ClInclude Include="..\..\imconfig.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui_internal.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\imgui_impl_glfw.h" />
+    <ClInclude Include="..\..\examples\imgui_impl_opengl2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ImWindowGLFW.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\g303.wav" />
+    <Media Include="..\..\g502.wav" />
+    <Media Include="..\..\g3032.wav" />
+    <Media Include="..\..\GPro.wav" />
+    <Media Include="..\..\hp.wav" />
+    <Media Include="..\..\microsoft.wav" />
+    <Media Include="..\..\oldmouse.wav" />
+    <Media Include="..\..\oof.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wave8.bin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ImGUI">
+      <UniqueIdentifier>{cb72c52f-16b0-4692-a972-feae00284dcc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\imgui.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_demo.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_draw.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_widgets.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\..\examples\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\..\misc\natvis\imgui.natvis" />
+  </ItemGroup>
+</Project>
