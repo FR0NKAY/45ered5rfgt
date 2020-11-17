@@ -2710,7 +2710,11 @@ int main(char* argv[])
 
 
 					//login
+<<<<<<< HEAD
 					char* url = "http://192.99.120.56/api/token ";
+=======
+					char* url = "http://192.99.120.56/api/token";
+>>>>>>> 6a52e18f22849c48cb59fe08d85540d3a75d444e
 					std::string responseData;
 
 					CURL* curl;
