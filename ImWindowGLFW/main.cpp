@@ -15,7 +15,7 @@ using namespace std;
 #include <random>
 
 #include <chrono>
-#include "nigger.h"
+
 #include <curl/curl.h>
 
 #include "imgui.h"
